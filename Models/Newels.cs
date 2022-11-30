@@ -10,5 +10,6 @@
         public int FlatSleeve { get; set; } = 0;
         public int MiscFlat { get; set; } = 0;
         public int MiscFlatSleeve { get; set; } = 0;
+        public int NewelSetID { get; set; }
     }
 }
