@@ -14,9 +14,9 @@ namespace Ramsey_Stair_CRUD_Project.Repos
             _conn = conn;
         }
 
-        public void DeleteNewels(Newels newelLine)
+        public void DeleteNewels(Newels n)
         {
-            _conn.Execute("DELETE FROM newels WHERE NewelSetID = @id;", new { id = newelLine.NewelSetID });
+            _conn.Execute("DELETE FROM newels WHERE NewelSetID = @id;", new { id = n.NewelSetID });
         }
 
         public IEnumerable<Newels> GetAllNewels()
