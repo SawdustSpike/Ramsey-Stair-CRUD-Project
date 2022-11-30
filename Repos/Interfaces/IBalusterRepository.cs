@@ -2,11 +2,11 @@
 
 namespace Ramsey_Stair_CRUD_Project.Repos.Interfaces
 {
-    public interface IBalusters
+    public interface IBalusterRepository
     {
-        public IEnumerable<Balusters> GetAllBalusters();
-        public void DeleteBalusters(Balusters b);
-        public void UpdateBalusters(Balusters b);
-        public void InsertBalusters(Balusters b);
+        public IEnumerable<Baluster> GetAllBalusters();
+        public void DeleteBaluster(Baluster b);
+        public void UpdateBaluster(Baluster b);
+        public void InsertBaluster(Baluster b);
     }
 }

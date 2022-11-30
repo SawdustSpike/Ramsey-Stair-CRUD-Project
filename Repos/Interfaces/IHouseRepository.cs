@@ -2,11 +2,11 @@
 
 namespace Ramsey_Stair_CRUD_Project.Repos.Interfaces
 {
-    public interface IHouse
+    public interface IHouseRepository
     {
         public IEnumerable<House> GetAllHouses();
-        public void DeleteHouses(House h);
-        public void UpdateHouses(House h);
-        public void InsertHouses(House h);
+        public void DeleteHouse(House h);
+        public void UpdateHouse(House h);
+        public void InsertHouse(House h);
     }
 }

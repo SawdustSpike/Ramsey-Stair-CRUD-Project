@@ -14,28 +14,28 @@ namespace Ramsey_Stair_CRUD_Project.Repos
             _conn = conn;
         }
 
-        public void DeleteNewels(Newels n)
+        public void DeleteNewel(Newel n)
         {
-            _conn.Execute("DELETE FROM newels WHERE NewelSetID = @id;", new { id = n.NewelSetID });
+            _conn.Execute("DELETE FROM newel WHERE NewelSetID = @id;", new { id = n.NewelSetID });
         }
 
-        public IEnumerable<Newels> GetAllNewels()
+        public IEnumerable<Newel> GetAllNewels()
         {
-            return _conn.Query<Newels>("SELECT * FROM NEWELS;");
+            return _conn.Query<Newel>("SELECT * FROM newel;");
         }
 
-        public void InsertNewels(Newels n)
+        public void InsertNewel(Newel n)
         {
-            _conn.Execute("INSERT INTO newels" +
+            _conn.Execute("INSERT INTO newel" +
                 "(Pitch, PitchSleeve, MiscPitch, Hippo, Flat, FlatSleeve, MiscFlat, MiscFlatSleeve)" +
                 "VALUES (@Pitch, @PitchSleeve, @MiscPitch, @Hippo, @Flat, @FlatSleeve, @MiscFlat, @MiscFlatSleeve);",
                 new { Pitch = n.Pitch, PitchSleeve = n.PitchSleeve, MiscPitch = n.MiscPitch, Hippo = n.Hippo, Flat = n.Flat,
                 FlatSleeve = n.FlatSleeve, MiscFlat = n.MiscFlat, MiscFlatSleeve = n.MiscFlatSleeve});
         }
 
-        public void UpdateNewels(Newels n)
+        public void UpdateNewel(Newel n)
         {
-            _conn.Execute("UPDATE newels" +
+            _conn.Execute("UPDATE newel" +
                "SET Pitch =@Pitch, PitchSleeve = @PitchSleeve, MiscPitch = @MiscPitch, Hippo = @Hippo, Flat = @Flat, FlatSleeve = @FlatSleeve, MiscFlat= @MiscFlat, MiscFlatSleeve= @MiscFlatSleeve;" +
                new
                {

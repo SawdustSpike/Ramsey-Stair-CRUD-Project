@@ -1,10 +1,11 @@
 ﻿namespace Ramsey_Stair_CRUD_Project.Models
 {
-    public class Tubfront
+    public class TubFront
     {
         public int TubFrontID { get; set; }
         public double TubFrontLength { get; set; }
-        public double TubFrontWidth { get; set; }
+        public double TubFrontHeight { get; set; }
         public int TubFrontQuantity { get; set; }
+        public int HouseID { get; set; }
     }
 }

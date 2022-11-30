@@ -4,10 +4,10 @@ namespace Ramsey_Stair_CRUD_Project.Repos.Interfaces
 {
     public interface INewelRepository
     {
-        public IEnumerable<Newels> GetAllNewels();
-        public void DeleteNewels(Newels n);
-        public void UpdateNewels(Newels n);
-        public void InsertNewels(Newels n);
+        public IEnumerable<Newel> GetAllNewels();
+        public void DeleteNewel(Newel n);
+        public void UpdateNewel(Newel n);
+        public void InsertNewel(Newel n);
 
     }
 }

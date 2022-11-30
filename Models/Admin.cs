@@ -8,7 +8,7 @@
         public string MeasureState { get; set; }
         public string InstallDate { get; set; }
         public bool InstallDone { get; set; } = false;
-        public int InvoiceNumber { get; set; }
+        public int InvoiceNum { get; set; }
         public string InvoiceDate { get; set; }
 
 

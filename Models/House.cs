@@ -9,7 +9,9 @@
         public string SubDiv { get; set; }
         public int HouseID { get; set; }
         public int BuilderID { get; set; }
-        public int HardwareID { get; set; }
+        public string HardwareColor { get; set; }
+
+
 
 
     }

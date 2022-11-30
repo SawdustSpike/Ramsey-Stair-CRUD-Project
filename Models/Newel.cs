@@ -1,6 +1,6 @@
 ﻿namespace Ramsey_Stair_CRUD_Project.Models
 {
-    public class Newels
+    public class Newel
     {
         public int Pitch { get; set; } = 0;
         public int PitchSleeve { get; set; } = 0;
