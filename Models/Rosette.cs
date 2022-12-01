@@ -2,9 +2,8 @@
 {
     public class Rosette
     {
-        public int RosetteQuantity { get; set; }
-        public int RoseStyleID { get; set; }
-        public int RoseTypeID { get; set; }
+        public int PitchRose { get; set; }
+        public int FlatRose { get; set; }
         public int RoseID { get; set; }
         public int HouseID { get; set; }
     }

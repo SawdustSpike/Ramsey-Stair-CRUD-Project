@@ -26,14 +26,14 @@ namespace Ramsey_Stair_CRUD_Project.Repos
 
         public void InsertRosette(Rosette r)
         {
-            _conn.Execute("INSERT INTO Rosette (RosetteQuantity, HouseID, RoseStyleID, RoseTypeID)" +
-                "VALUES (@RosetteQuantity, @HouseID, @RoseStyleID, @RoseTypeID);",
-                new { RosetteQuantity = r.RosetteQuantity, HouseID = r.HouseID, RoseStyleID = r.RoseStyleID, RoseTypeID = r.RoseTypeID });
+            _conn.Execute("INSERT INTO Rosette HouseID, PitchRose, FlatRose )" +
+                "VALUES ( @HouseID, @PitchRose, @FlatRose);",
+                new { HouseID = r.HouseID, PitchRose = r.PitchRose, FlatRose = r.FlatRose });
         }
         public void UpdateRosette(Rosette r)
         {
-            _conn.Execute("UPDATE Rosette SET RosetteQuantity = @RosetteQuantity, HouseID = @HouseID, RoseStyleID = @RoseStyleID, RoseTypeID = @RoseTypeID;",
-                new { RosetteQuantity = r.RosetteQuantity, HouseID = r.HouseID, RoseStyleID = r.RoseStyleID, RoseTypeID = r.RoseTypeID });
+            _conn.Execute("UPDATE Rosette SET HouseID = @HouseID, PitchRose = @PitchRose, FlatRose = @FlatRose;",
+                new { HouseID = r.HouseID, PitchRose = r.PitchRose, FlatRose = r.FlatRose });
         }
     }
 }
