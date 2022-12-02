@@ -13,7 +13,6 @@ namespace Ramsey_Stair_CRUD_Project.Repos
         {
             _conn = conn;
         }
-
         public void DeleteRail(Rail r)
         {
             _conn.Execute("DELETE FROM Rail WHERE RailID = @id;", new { id = r.RailID });
@@ -26,8 +25,8 @@ namespace Ramsey_Stair_CRUD_Project.Repos
 
         public void InsertRail(Rail r)
         {
-            _conn.Execute("INSERT INTO rail (RailLineNum, RailTypeID, RailStyleID, RailLength, CapTypeID, CapLength, HouseID, IronBal)" +
-                "VALUES (@RailLineNum, @RailTypeID, @RailStyleID, @RailLength, @CapTypeID, @CapLength, @HouseID, @IronBal);",
+            _conn.Execute("INSERT INTO rail (RailLineNum, RailTypeID, RailStyleID, RailLength, CapTypeID, CapLength, HouseID)" +
+                "VALUES (@RailLineNum, @RailTypeID, @RailStyleID, @RailLength, @CapTypeID, @CapLength, @HouseID);",
                 new
                 {
                     RailLineNum = r.RailLineNum,
@@ -36,14 +35,14 @@ namespace Ramsey_Stair_CRUD_Project.Repos
                     RailLength = r.RailLength,
                     CapTypeID = r.CapTypeID,
                     CapLength = r.CapLength,
-                    HouseID = r.HouseID,
-                    IronBal = r.IronBal
+                    HouseID = r.HouseID
+                    
                 });
         }
 
         public void UpdateRail(Rail r)
         {
-            _conn.Execute("UPDATE Rail SET RailLineNum = @RailLineNum, RailTypeID = @RailTypeID, RailStyleID = @RailStyleID, RailLength = @RailLength, CapTypeID = @CapTypeID, CapLength = @CapLength, HouseID = @HouseID, IronBal = @IronBal;",
+            _conn.Execute("UPDATE Rail SET RailLineNum = @RailLineNum, RailTypeID = @RailTypeID, RailStyleID = @RailStyleID, RailLength = @RailLength, CapTypeID = @CapTypeID, CapLength = @CapLength, HouseID = @HouseID ;",
                  new
                  {
                      RailLineNum = r.RailLineNum,
@@ -52,9 +51,28 @@ namespace Ramsey_Stair_CRUD_Project.Repos
                      RailLength = r.RailLength,
                      CapTypeID = r.CapTypeID,
                      CapLength = r.CapLength,
-                     HouseID = r.HouseID,
-                     IronBal = r.IronBal
+                     HouseID = r.HouseID
                  });
         }
+        public IEnumerable<RailStyle> GetRailStyle()
+        {
+            return _conn.Query<RailStyle>("SELECT RailStyleID, RailStyle as RailStyles FROM railstyle;");
+
+        }
+        public IEnumerable<RailType> GetRailType()
+        {
+            return _conn.Query<RailType>("SELECT RailTypeID, RailType as RailTypes FROM railtype;");
+
+        }
+        public IEnumerable<CapType> GetCapType()
+        {
+            return _conn.Query<CapType>("SELECT CapTypeID, CapType as CapTypes FROM captype;");
+
+        }
+        public IEnumerable<LotNumber> GetLotNumbers()
+        {
+            return _conn.Query<LotNumber>("SELECT * FROM house;");
+        }
+
     }
 }

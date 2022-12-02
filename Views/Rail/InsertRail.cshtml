@@ -1,0 +1,59 @@
+﻿@model Rail
+
+<h2>Create a New Line Of Rail</h2>
+
+@using (Html.BeginForm("InsertRailToDatabase", "Rail", "Post")){
+    <input asp-for="RailID" type="hidden" value="" />
+
+    <label asp-for="RailLineNum" class="control-label">What is the rail line number</label>
+    <input type="number" step="0.01" name="RailLineNum" class="form-control" value="" />
+
+    <div class="form-group">
+        <label for="">Select a Rail Type</label>
+        <select class="form-control" name="RailTypeID" value="">
+            @foreach (var type in ViewBag.RailTypes)
+            {
+                <option value="@type.RailTypeID">@type.RailTypeID @type.RailTypes</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="">Select a Rail Style</label>
+        <select class="form-control" name="RailStyleID" value="">
+            @foreach (var style in ViewBag.RailStyles)
+            {
+                <option value="@style.RailStyleID">@style.RailStyleID @style.RailStyles</option>
+            }
+        </select>
+    </div>
+
+    <label asp-for="RailLength" class="control-label">What Length Does the Rail need to be cut to?</label>
+    <input type="number" step="0.01" name="RailLength" class="form-control" value="" />
+
+    <div class="form-group">
+        <label for="">Select a Cap Width</label>
+        <select class="form-control" name="CaptypeID" value="">
+            @foreach (var cap in ViewBag.CapTypes)
+            {
+                <option value="@cap.CaptypeID">@cap.CaptypeID @cap.CapTypes</option>
+            }
+        </select>
+    </div>
+
+    <label asp-for="CapLength" class="control-label">What Length Does the Cap Board Need to be cut to?</label>
+    <input type="number" step="0.01" name="CapLength" class="form-control" value="" />
+
+    <div class="form-group">
+        <label for="">Which House is This Being Installed In?</label>
+            <select class="form-control" name="HouseID" value="">
+            @foreach (var lots in ViewBag.LotNumbers)
+            {
+                        <option value="@lots.HouseID">@lots.HouseID @lots.LotNum</option>
+            }
+            </select>
+        </div>
+
+        <input type="submit" value="Create Rail" class="btn btn-primary" />
+
+}

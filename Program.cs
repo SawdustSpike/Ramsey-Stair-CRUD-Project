@@ -6,6 +6,8 @@ using MySql.Data.MySqlClient;
 using System.Configuration;
 using System.Data;
 using Ramsey_Stair_CRUD_Project;
+using Ramsey_Stair_CRUD_Project.Repos.Interfaces;
+using Ramsey_Stair_CRUD_Project.Repos;
 
 //^^^^MUST HAVE USING DIRECTIVES^^^^
 
@@ -28,7 +30,18 @@ builder.Services.AddScoped<IDbConnection>((s) =>
     return conn;
 });
 
-builder.Services.AddTransient<>();
+builder.Services.AddTransient<IAdminRepository, AdminRepository>();
+builder.Services.AddTransient<IBalusterRepository, BalusterRepository>();
+builder.Services.AddTransient<IHouseRepository, HouseRepository>();
+builder.Services.AddTransient<IMantleRepository, MantleRepository>();
+builder.Services.AddTransient<INewelRepository, NewelRepository>();
+builder.Services.AddTransient<INicheRepository, NicheRepository>();
+builder.Services.AddTransient<IRailRepository, RailRepository>();
+builder.Services.AddTransient<IRosetteRepository, RosetteRepository>();
+builder.Services.AddTransient<ITubFrontRepository, TubFrontRepository>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IWallAccessRepository, WallAccessRepository>();
+
 var app = builder.Build();
 
 

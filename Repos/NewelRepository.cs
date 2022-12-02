@@ -21,6 +21,7 @@ namespace Ramsey_Stair_CRUD_Project.Repos
 
         public IEnumerable<Newel> GetAllNewels()
         {
+
             return _conn.Query<Newel>("SELECT * FROM newel;");
         }
 

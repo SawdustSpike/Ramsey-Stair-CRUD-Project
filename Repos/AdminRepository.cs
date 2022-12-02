@@ -5,7 +5,7 @@ using System.Data;
 
 namespace Ramsey_Stair_CRUD_Project.Repos
 {
-    public class AdminRepository : IAdminRepository
+    public class AdminRepository : IAdminRepository, ICatchAll
     {
        
             private readonly IDbConnection _conn;

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Rail>
+
+    <h2> Browse Jobs</h2>
+    <div style="display: block">
+          <a href="/Rail/InsertRail/">Create A Line Of Rail</a>
+    </div>
+    <table class="table">
+        <tr>
+            <th>RailLineNumber</th>
+            <th>RailType</th>
+            <th>RailStyle</th>
+            <th>RailLength</th>
+            <th>CapType</th>
+            <th>CapLength</th>
+            <th>HouseID</th>
+        </tr>
+        @foreach (var rail in @Model)
+        {
+            <tr>
+                <td>@rail.RailLineNum</td>
+                <td>@rail.RailTypeID</td>
+                <td>@rail.RailStyleID</td>
+                <td>@rail.RailLength</td>
+                <td>@rail.CapTypeID</td>
+                <td>@rail.CapLength</td>
+                <td>@rail.HouseID</td>
+            </tr>
+        }
