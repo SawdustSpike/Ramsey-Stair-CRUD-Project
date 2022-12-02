@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Rail>
+﻿@model IEnumerable<OrderFull>
 
     <h2> Browse Jobs</h2>
     <div style="display: block"
@@ -14,6 +14,18 @@
             <th>InvoiceNumber</th>
             <th>Invoice Date</th>
         </tr>
+          @foreach (var order in @Model)
+        {
+            <tr>
+                <td>@order.HouseID</td>
+                <td>@order.MeasureDone</td>
+                <td>@order.MeasureDate</td>
+                <td>@order.InstallDone</td>
+                <td>@order.InstallDate</td>
+                <td>@order.InvoiceNum</td>
+                <td>@order.InvoiceDate</td>
+            </tr>
+        }
      
     
     </table>
