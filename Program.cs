@@ -41,6 +41,7 @@ builder.Services.AddTransient<IRosetteRepository, RosetteRepository>();
 builder.Services.AddTransient<ITubFrontRepository, TubFrontRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IWallAccessRepository, WallAccessRepository>();
+builder.Services.AddTransient<IOrderFullRepository, OrderFullRepository>();
 
 var app = builder.Build();
 

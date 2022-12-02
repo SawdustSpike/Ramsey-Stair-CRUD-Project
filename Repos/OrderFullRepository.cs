@@ -15,79 +15,79 @@ namespace Ramsey_Stair_CRUD_Project.Repos
         }
         public void DeleteOrderFull(OrderFull o)
         {
-            throw new NotImplementedException();
-           // _conn.Execute("DELETE FROM orderfull WHERE OrderID = @id;", new { id = o.OrderID });
+            
+           _conn.Execute("DELETE FROM orderfull WHERE OrderID = @id;", new { id = o.OrderID });
         }
 
-        public IEnumerable<OrderFull> GetAllOrderFulls()
+        public IEnumerable<OrderFull> GetAllOrderFull()
         {
             return _conn.Query<OrderFull>("SELECT * FROM orderfull;");
         }
 
-        public IEnumerable<Rail> GetAllRail()
+        public IEnumerable<Rail> GetAllRail(int id)
         {
-            throw new NotImplementedException();
-          //  return _conn.Query<Rail>("SELECT * FROM Rail;");
+            
+         return _conn.Query<Rail>("SELECT * FROM Rail WHERE HouseID = @id;", new { id = id});
         }
 
         public IEnumerable<BalusterType> GetBalusterTypes()
         {
-            throw new NotImplementedException();
-          //  return _conn.Query<BalusterType>("SELECT * FROM BalusterType;");
+           
+          return _conn.Query<BalusterType>("SELECT * FROM BalusterType;");
         }
 
         public IEnumerable<Builder> GetBuilders()
         {
-            throw new NotImplementedException();
-           // return _conn.Query<Builder>("SELCET * FROM builder;");
+            
+          return _conn.Query<Builder>("SELCET * FROM builder;");
         }
 
         public IEnumerable<CapType> GetCapType()
         {
-            throw new NotImplementedException();
-         //   return _conn.Query<CapType>("SELECT CapTypeID, CapType as CapTypes FROM captype;");
+          
+        return _conn.Query<CapType>("SELECT CapTypeID, CapType as CapTypes FROM captype;");
         }
 
         public IEnumerable<LotNumber> GetLotNumbers()
         {
-            throw new NotImplementedException();
-          //  return _conn.Query<LotNumber>("SELECT * FROM house;");
+           
+         return _conn.Query<LotNumber>("SELECT * FROM house;");
         }
 
-        public IEnumerable<Mantle> GetMantles()
+        public IEnumerable<Mantle> GetMantles(int id)
         {
-            throw new NotImplementedException();
-          //  return _conn.Query<Mantle>("SELECT * FROM mantle;");
+           
+        return _conn.Query<Mantle>("SELECT * FROM mantle WHERE HouseID = @id;", new {id = id});
         }
 
-        public IEnumerable<Niche> GetNiches()
+        public IEnumerable<Niche> GetNiches(int id)
         {
-            throw new NotImplementedException();
-          //  return _conn.Query<Niche>("SELECT * FROM Niche;");
+           
+         return _conn.Query<Niche>("SELECT * FROM Niche WHERE HouseID = @id;", new {id = id});
         }
 
         public IEnumerable<RailStyle> GetRailStyle()
         {
-            throw new NotImplementedException();
-           // return _conn.Query<RailStyle>("SELECT RailStyleID, RailStyle as RailStyles FROM railstyle;");
+          
+          return _conn.Query<RailStyle>("SELECT RailStyleID, RailStyle as RailStyles FROM railstyle;");
         }
 
         public IEnumerable<RailType> GetRailType()
         {
-            throw new NotImplementedException();
-         //   return _conn.Query<RailType>("SELECT RailTypeID, RailType as RailTypes FROM railtype;");
+           
+         return _conn.Query<RailType>("SELECT RailTypeID, RailType as RailTypes FROM railtype;");
         }
 
-        public IEnumerable<TubFront> GetTubFronts()
+        public IEnumerable<TubFront> GetTubFronts(int id)
         {
-            throw new NotImplementedException();
-          //  return _conn.Query<TubFront>("SELECT * FROM tubfront;");
+            
+            return _conn.Query<TubFront>("SELECT * FROM tubfront WHERE HouseID = @id;", new {id=id});
         }
 
-        public IEnumerable<WallAccess> GetWallAccesses()
+        public IEnumerable<WallAccess> GetWallAccesses(int id)
         {
-            throw new NotImplementedException();
-          //  return _conn.Query<WallAccess>("SELECT * FROM wallaccess;");
+
+            return _conn.Query<WallAccess>("SELECT * FROM wallaccess WHERE HouseID = @id;", new {id = id});
         }
 
         public void InsertOrderFull(OrderFull o)
@@ -98,6 +98,10 @@ namespace Ramsey_Stair_CRUD_Project.Repos
         public void UpdateOrderFull(OrderFull o)
         {
             throw new NotImplementedException();
+        }
+        public void FullOrder(int id)
+        {
+
         }
     }
 }

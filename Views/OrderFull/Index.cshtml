@@ -17,7 +17,8 @@
           @foreach (var order in @Model)
         {
             <tr>
-                <td>@order.HouseID</td>
+            
+                <td><a href=/OrderFull/FullOrder/@order.HouseID>@Order.HouseID</a></td>
                 <td>@order.MeasureDone</td>
                 <td>@order.MeasureDate</td>
                 <td>@order.InstallDone</td>
