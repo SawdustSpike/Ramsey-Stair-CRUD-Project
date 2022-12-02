@@ -22,6 +22,8 @@ namespace Ramsey_Stair_CRUD_Project.Models
         public string? SubDiv { get; set; }
         public int? BuilderID { get; set; }
         public string? HardwareColor { get; set; }
+        public string StainColor { get; set; }
+        public bool WI { get; set; } = false;
         public int Pitch { get; set; } = 0;
         public int PitchSleeve { get; set; } = 0;
         public int MiscPitch { get; set; } = 0;
@@ -34,8 +36,11 @@ namespace Ramsey_Stair_CRUD_Project.Models
         public int FlatRose { get; set; } = 0;
         public IEnumerable<Rail>? Railines { get; set; }
         public IEnumerable<TubFront>? TubFronts { get; set; }
-        public IEnumerator<WallAccess>? WallAcsesses { get; set; }
+        public IEnumerable<WallAccess>? WallAccesses { get; set; }
         public IEnumerable<Niche>? Niches { get; set; }
+        public IEnumerable<Mantle>? Mantles { get; set; }
+        public string? LotNumber { get; set; }
+
 
 
 

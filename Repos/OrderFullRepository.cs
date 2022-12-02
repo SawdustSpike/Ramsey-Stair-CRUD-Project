@@ -39,7 +39,7 @@ namespace Ramsey_Stair_CRUD_Project.Repos
         public IEnumerable<Builder> GetBuilders()
         {
             
-          return _conn.Query<Builder>("SELCET * FROM builder;");
+          return _conn.Query<Builder>("SELECT * FROM builder;");
         }
 
         public IEnumerable<CapType> GetCapType()
@@ -48,12 +48,12 @@ namespace Ramsey_Stair_CRUD_Project.Repos
         return _conn.Query<CapType>("SELECT CapTypeID, CapType as CapTypes FROM captype;");
         }
 
-        public IEnumerable<LotNumber> GetLotNumbers()
+        public string GetLotNumber(int id)
         {
            
-         return _conn.Query<LotNumber>("SELECT * FROM house;");
+         return _conn.QuerySingle<LotNumber>("SELECT * FROM house WHERE HouseID = @id;", new {id=id}).LotNum;
         }
-
+       
         public IEnumerable<Mantle> GetMantles(int id)
         {
            
@@ -81,7 +81,7 @@ namespace Ramsey_Stair_CRUD_Project.Repos
         public IEnumerable<TubFront> GetTubFronts(int id)
         {
             
-            return _conn.Query<TubFront>("SELECT * FROM tubfront WHERE HouseID = @id;", new {id=id});
+            return _conn.Query<TubFront>("SELECT * FROM tubfront WHERE HouseID = @id;", new {id = id});
         }
 
         public IEnumerable<WallAccess> GetWallAccesses(int id)
@@ -99,9 +99,14 @@ namespace Ramsey_Stair_CRUD_Project.Repos
         {
             throw new NotImplementedException();
         }
-        public void FullOrder(int id)
+        public OrderFull FullOrder(int id) 
         {
+            return _conn.QuerySingle<OrderFull>("SELECT * FROM orderfull WHERE HouseID = @id;", new { id = id });
+        }
 
+        public IEnumerable<LotNumber> GetLotNumbers()
+        {
+            return _conn.Query<LotNumber>("SELECT * FROM house;");
         }
     }
 }

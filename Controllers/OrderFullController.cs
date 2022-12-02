@@ -16,13 +16,28 @@ namespace Ramsey_Stair_CRUD_Project.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.LotNumbers = repo.GetLotNumbers();
+
             var order = repo.GetAllOrderFull();
+
             return View(order);
         }
 
         public IActionResult FullOrder(int id)
         {
             var order = repo.FullOrder(id);
+            ViewBag.RailStyles = repo.GetRailStyle();
+            ViewBag.RailTypes = repo.GetRailType();
+            ViewBag.CapTypes = repo.GetCapType();
+            order.LotNumber = repo.GetLotNumber(id);
+            ViewBag.Builders = repo.GetBuilders();
+            ViewBag.BalusterTypes = repo.GetBalusterTypes();
+            order.Railines = repo.GetAllRail(id);
+            order.Mantles = repo.GetMantles(id);
+            order.TubFronts = repo.GetTubFronts(id);
+            order.WallAccesses = repo.GetWallAccesses(id);
+            order.Niches = repo.GetNiches(id);
+            
             return View(order);
         }
         //public IActionResult InsertOrderToDatabase(OrderFull orderToInsert)

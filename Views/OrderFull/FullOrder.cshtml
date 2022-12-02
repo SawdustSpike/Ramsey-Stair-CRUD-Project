@@ -1,1 +1,198 @@
-﻿
+﻿@model OrderFull
+
+<h3>@Model.HouseID Information</h3>
+
+<table class="table">
+    <tr>
+        <th>Lot Number</th>
+        <th>Measured?</th>
+        <th>Measured Date</th>
+        <th>Measure State</th>
+        <th>Installed?</th>
+        <th>Installed Date</th>
+        <th>InvoiceNumber</th>
+        <th>Invoice Date</th>
+    </tr>
+    
+    <tr>
+
+        <td>@Model.LotNumber</td>
+        <td>@Model.MeasureDone</td>
+        <td>@Model.MeasureDate</td>
+        <td>@Model.MeasureState</td>
+        <td>@Model.InstallDone</td>
+        <td>@Model.InstallDate</td>
+        <td>@Model.InvoiceNum</td>
+        <td>@Model.InvoiceDate</td>
+    </tr>  
+</table>
+
+<table class="table">
+    <tr>
+        <th>Builder</th>
+        <th>Address</th>
+        <th>Model Type</th>
+        <th>SubDivision</th>
+        <th>Hardware Color</th>
+        <th>Stain Color</th>
+        <th>Wrought Iron Balusters?</th>
+    </tr>
+
+    <tr>
+
+        <td>@Model.BuilderID</td>
+        <td>@Model.Address</td>
+        <td>@Model.Model</td>
+        <td>@Model.SubDiv</td>
+        <td>@Model.HardwareColor</td>
+        <td>@Model.StainColor</td>
+        <td>@Model.WI</td>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <th>Baluster Style</th>
+        <th>Pitch Balusters</th>
+        <th>Flat Balusters</th>
+
+    </tr>
+    <tr>
+        <td>@Model.BalTypeID</td>
+        <td>@Model.PitchBal</td>
+        <td>@Model.FlatBal</td>
+    </tr>
+</table>"
+
+<table class="table">
+    <tr>
+        <th>Pitch Newels</th>
+        <th>Sleeved Pitch</th>
+        <th>Misc Pitch</th>
+        <th>Hippo Newel</th>
+    </tr>
+    <tr>
+        <td>@Model.Pitch</td>
+        <td>@Model.PitchSleeve</td>
+        <td>@Model.MiscPitch</td>
+        <td>@Model.Hippo</td>
+    </tr>
+</table>
+<table class="table">
+    <tr>
+        <th>Flat Newels</th>
+        <th>Flat Sleeved</th>
+        <th>Misc Flat</th>
+        <th>Misc Flat Sleeves</th>
+    </tr>
+    <tr>
+        <td>@Model.Flat</td>
+        <td>@Model.FlatSleeve</td>
+        <td>@Model.MiscFlat</td>
+        <td>@Model.MiscFlatSleeve</td>
+    </tr>
+</table>
+<table class="table">
+    <tr>
+        <th>Pitch Balusters</th>
+        <th>Flat Balusters</th>
+    </tr>
+    <tr>
+        <td>@Model.PitchRose</td>
+        <td>@Model.FlatRose</td>
+    </tr>
+</table>
+ <table class="table">
+        <tr>
+            <th>RailLineNumber</th>
+            <th>RailType</th>
+            <th>RailStyle</th>
+            <th>RailLength</th>
+            <th>CapType</th>
+            <th>CapLength</th>
+            <th>HouseID</th>
+        </tr>
+        @foreach (var rail in @Model.Railines)
+        {
+            <tr>
+                <td>@rail.RailLineNum</td>
+                <td>@rail.RailTypeID</td>
+                <td>@rail.RailStyleID</td>
+                <td>@rail.RailLength</td>
+                <td>@rail.CapTypeID</td>
+                <td>@rail.CapLength</td>
+                <td>@rail.HouseID</td>
+            </tr>
+        }
+</table>
+<table class="table">
+    <tr>
+        <th>Mantle Quantity</th>
+        <th>Mantle Type</th>        
+        <th>Notes</th>
+    </tr>
+    @foreach (var mantle in @Model.Mantles)
+    {    
+    <tr>
+        <td>@mantle.MantleQuantity </td>
+        <td>@mantle.MantleType</td>        
+        <td>@mantle.MantleNotes</td>
+    </tr>
+    }
+</table>
+
+<table class="table">
+    <tr>
+        <th>Tub Front Quantity</th>
+        <th>Height</th>
+        <th>Length</th>
+    </tr>
+    @foreach (var tub in @Model.TubFronts)
+    {
+        <tr>
+            <td>@tub.TubFrontQuantity</td>
+            <td>@tub.TubFrontHeight </td>
+            <td>@tub.TubFrontLength</td>
+        </tr>
+    }
+</table>
+
+<table class="table">
+    <tr>
+        <th>Niche Quantity</th>
+        <th>Height</th>
+        <th>Length</th>
+    </tr>
+    @foreach (var niche in @Model.Niches)
+    {
+        <tr>
+            <td>@niche.NicheQuantity</td>
+            <td>@niche.NicheHeight</td>
+            <td>@niche.NicheWidth</td>
+        </tr>
+    }
+</table>
+
+<table class="table">
+    <tr>
+        <th>Wall Access Quantity</th>
+        <th>Height</th>
+        <th>Length</th>
+        <th>Notes</th>
+    </tr>
+    @foreach (var a in @Model.WallAccesses)
+    {
+        <tr>
+            <td>@a.WallAccessQuantity</td>
+            <td>@a.WallAccessHeight</td>
+            <td>@a.WallAccessWidth</td>
+            <td>@a.WallAccessNotes</td>
+        </tr>
+    }
+</table>
+
+<h2>Notes</h2>
+<div class="container">
+    <p>@Model.Notes</p>
+</div>
+

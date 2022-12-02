@@ -29,14 +29,14 @@ namespace Ramsey_Stair_CRUD_Project.Repos
             {
                 _conn.Execute("INSERT INTO Mantle (MantleType, MantleNotes, HouseID, MantleQuantity)" +
                     "VALUES (@MAntleType, @MantleNotes, @HouseID, @MantleQuantity);",
-                    new { MantleType = m.MAntleType, MantleNotes =m.MantleNotes, HouseID =m.HouseID, MantleQuantity=m.MantleQuantity });
+                    new { MantleType = m.MantleType, MantleNotes =m.MantleNotes, HouseID =m.HouseID, MantleQuantity=m.MantleQuantity });
 
             }
 
             public void UpdateMantle(Mantle m)
             {
                 _conn.Execute("UPDATE Mantles SET MantleType = @MAntleType, MantleNotes = @MantleNotes, HouseID = @HouseID, MantleQuantity = @MantleQuantity;",
-                    new { MantleType = m.MAntleType, MantleNotes = m.MantleNotes, HouseID = m.HouseID, MantleQuantity = m.MantleQuantity });
+                    new { MantleType = m.MantleType, MantleNotes = m.MantleNotes, HouseID = m.HouseID, MantleQuantity = m.MantleQuantity });
         }
         }
     }

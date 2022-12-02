@@ -19,6 +19,7 @@ namespace Ramsey_Stair_CRUD_Project.Repos.Interfaces
         public IEnumerable<LotNumber> GetLotNumbers();
         public IEnumerable<Builder> GetBuilders();
         public IEnumerable<BalusterType> GetBalusterTypes();
-        public void FullOrder(int id);
+        public OrderFull FullOrder(int id);
+        public string GetLotNumber(int id);
     }
 }
