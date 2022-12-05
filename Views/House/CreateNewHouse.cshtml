@@ -1,0 +1,14 @@
+﻿@model House
+
+<h2>Create a New WorkOrder</h2>
+
+@using (Html.BeginForm("CreateNewHouse", "House", "Post"))
+{
+    <input asp-for="HouseID" type="hidden" value="" />
+
+    <label asp-for="LotNum" class="control-label">Enter Lot Number</label>
+    <input type="text" name="LotNum" class="form-control" value="" />
+
+    
+    <input type="submit" value="Create Work Order" class="btn btn-primary" />
+}

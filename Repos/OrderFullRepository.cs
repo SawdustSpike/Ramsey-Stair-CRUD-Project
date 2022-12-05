@@ -13,10 +13,11 @@ namespace Ramsey_Stair_CRUD_Project.Repos
         {
             _conn = conn;
         }
-        public void DeleteOrderFull(OrderFull o)
+        public void DeleteOrderFull(int id)
         {
             
-           _conn.Execute("DELETE FROM orderfull WHERE OrderID = @id;", new { id = o.OrderID });
+           _conn.Execute("DELETE FROM orderfull WHERE HouseID = @id;", new { id = id });
+         
         }
 
         public IEnumerable<OrderFull> GetAllOrderFull()

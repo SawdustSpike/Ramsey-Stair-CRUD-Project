@@ -27,16 +27,16 @@ namespace Ramsey_Stair_CRUD_Project.Repos
 
         public void InsertHouse(House h)
         {
-            _conn.Execute("INSERT INTO Housedetail (LotNum, Address, Notes, Model, SubDiv, BuilderID, HardwareColor, WI)" +
-                "VALUES (@LotNum, @Address, @Notes, @Model, @SubDiv, @BuilderID, @HardwareColor, @WI);",
-                new { Address = h.Address, Notes = h.Notes, Model = h.Model, SubDiv = h.SubDiv, BuilderID = h.BuilderID, HardwareID = h.HardwareColor, WI = h.WI });
+            _conn.Execute("INSERT INTO House (LotNum)" +
+                "VALUES (@LotNum);",
+                new { lotNum = h.LotNum });
 
         }
 
         public void UpdateHouse(House h)
         {
-            _conn.Execute("UPDATE Housedetail SET LotNum = @LotNum, Address = @Address, Notes = @Notes, Model = @Model, SubDiv = @SubDiv, BuilderID = @BuilderID, HardwareID = @HardwareColor, WI = @WI;",              
-                new { Address = h.Address, Notes = h.Notes, Model = h.Model, SubDiv = h.SubDiv, BuilderID = h.BuilderID, HardwareID = h.HardwareColor, WI = h.WI });
+            _conn.Execute("UPDATE Housedetail SET LotNum = @LotNum",              
+                new { lotNum = h.LotNum });
         }
     }
 }

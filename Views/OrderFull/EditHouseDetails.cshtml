@@ -1,0 +1,71 @@
+﻿@model OrderFull
+
+<hr1>Edit @Model.HouseID </hr1>
+
+@using (Html.BeginForm("EditOrderDeets", "OrderFull", "Post"))
+{
+    <input asp-for="OrderID" type="hidden" value="@Model.OrderID" />
+
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="MeasureDone" id="@Model.MeasureDone" value="true">
+        <label class="form-check-label" for="@Model.MeasureDone">
+            Measure Complete
+        </label>
+    </div>
+
+    <label asp-for="MeasureDone" class="control-label">Has This House been Measured?</label>
+    <input type="text" name="MeasureDone" class="form-control" value="" />
+
+    <label asp-for="MeasureDate" class="control-label">When was this house Measured?</label>
+    <input type="text" name="MeasureDate" class="form-control" value="" />
+
+    <label asp-for="MeasureState" class="control-label">What was the Condition of the House when Measured?</label>
+    <input type="text" name="MeasureState" class="form-control" value="" />
+
+    <label asp-for="InstallDone" class="control-label">Has This House Been Installed?</label>
+    <input type="text" name="InstallDone" class="form-control" value="" />
+
+    <label asp-for="InstallDate" class="control-label">When was this House Installed?</label>
+    <input type="text" name="InstallDate" class="form-control" value="" />
+
+    <label asp-for="InvoiceNum" class="control-label">Invoice Number</label>
+    <input type="number" name="InvoiceNum" class="form-control" value="" />
+
+    <label asp-for="InvoiceDate" class="control-label">Enter a New Lot Number</label>
+    <input type="text" name="InvoiceDate" class="form-control" value="" />
+
+    <div class="form-group">
+        <label for="">Select a Builder</label>
+        <select class="form-control" name="BuilderID" value="">
+            @foreach (var cat in ViewBag.BuilderID)
+            {
+                <option value="@ViewBag.BuilderID">@ViewBag.BuilderID @ViewBag.BuilderName</option>
+            }
+        </select>
+    </div>
+
+    <label asp-for="Address" class="control-label">What is the House's Address?</label>
+    <input type="text" name="Address" class="form-control" value="" />
+
+    <label asp-for="SubDiv" class="control-label">Enter a Sub-Division</label>
+    <input type="text" name="Subdiv" class="form-control" value="" />
+
+    <label asp-for="HardwareColor " class="control-label">Enter The Hardware Color</label>
+    <input type="text" name="HardwareColor" class="form-control" value="" />
+
+    <label asp-for="StainColor" class="control-label">What's the Stain Color?'</label>
+    <input type="text" name="StainColor" class="form-control" value="" />
+
+    <label asp-for="WI" class="control-label">Does This House Get Wrought Iron Balusters</label>
+    <input type="text" name="WI" class="form-control" value="" />
+
+      <label asp-for="Notes" class="control-label">Notes</label>
+    <input type="text" name="Notes" class="form-control" value="" />
+
+
+    
+
+
+
+    <input type="submit" value="Update Lot Number" class="btn btn-primary" />
+}

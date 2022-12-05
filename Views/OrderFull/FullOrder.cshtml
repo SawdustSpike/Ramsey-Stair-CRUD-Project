@@ -196,3 +196,11 @@
     <p>@Model.Notes</p>
 </div>
 
+<div style="display: block">
+
+    @using (Html.BeginForm("DeleteOrderFull", "FullOrder", "Post"))
+    {
+        <input type="hidden" asp-for="HouseID" value="@Model.HouseID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this Job" />
+    }
+</div>

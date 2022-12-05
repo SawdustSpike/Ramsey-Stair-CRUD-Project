@@ -5,7 +5,7 @@ namespace Ramsey_Stair_CRUD_Project.Repos.Interfaces
     public interface IOrderFullRepository
     {
         public IEnumerable<OrderFull> GetAllOrderFull();
-        public void DeleteOrderFull(OrderFull o);
+        public void DeleteOrderFull(int id);
         public void UpdateOrderFull(OrderFull o);
         public void InsertOrderFull(OrderFull o);
         public IEnumerable<WallAccess> GetWallAccesses(int id);

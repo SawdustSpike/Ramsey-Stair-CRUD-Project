@@ -40,6 +40,17 @@ namespace Ramsey_Stair_CRUD_Project.Controllers
             
             return View(order);
         }
+
+        public IActionResult DeleteOrderFull(int id)
+        {
+            DeleteOrderFull(id);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult CreateOrder(string lotNum)
+        {
+
+        }
         //public IActionResult InsertOrderToDatabase(OrderFull orderToInsert)
         //{
         //    repo.InsertOrderFull(orderToInsert);
