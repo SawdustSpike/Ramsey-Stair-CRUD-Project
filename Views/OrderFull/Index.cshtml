@@ -6,6 +6,7 @@
     </div>
     <table class="table">
         <tr>
+            <th>Edit This House</th>
             <th>Lot Number</th>
             <th>Measured?</th>
             <th>Measured Date</th>
@@ -17,7 +18,7 @@
           @foreach (var order in @Model)
         {
             <tr>
-            
+                <td><a href=/OrderFull/EditMenu/@order.HouseID>Update This House</a></td>
                 <td><a href=/OrderFull/FullOrder/@order.HouseID>@order.LotNum</a></td> 
                 <td>@order.MeasureDone</td>
                 <td>@order.MeasureDate</td>

@@ -12,22 +12,25 @@ namespace Ramsey_Stair_CRUD_Project.Controllers
         {
             this.repo = repo;
         }
-        public IActionResult Index()
+        public IActionResult Index(int id)
         {
-            var rails = repo.GetAllRails();
+            var order = repo.GetLotNum(id);
+            var rails = repo.GetAllRails(id);
+            ViewBag.LotNum = order.LotNum;
+            ViewBag.HouseID = order.HouseID;
             return View(rails);
         }
         public IActionResult InsertRailToDatabase(Rail railToInsert)
         {
             repo.InsertRail(railToInsert);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new {id = railToInsert.HouseID});
         }
-        public IActionResult InsertRail()
+        public IActionResult InsertRail(int id)
         {
             ViewBag.RailStyles = repo.GetRailStyle();
             ViewBag.RailTypes = repo.GetRailType();
             ViewBag.CapTypes = repo.GetCapType();
-            
+            ViewBag.HouseID = id;
             
             return View(new Rail());
         }

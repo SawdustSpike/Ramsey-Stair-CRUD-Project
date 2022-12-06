@@ -4,6 +4,7 @@
 
 @using (Html.BeginForm("InsertRailToDatabase", "Rail", "Post")){
     <input asp-for="RailID" type="hidden" value="" />
+    <input asp-for="HouseID" type="hidden" value="@ViewBag.HouseID" />
 
     <label asp-for="RailLineNum" class="control-label">What is the rail line number</label>
     <input type="number" step="0.01" name="RailLineNum" class="form-control" value="" />

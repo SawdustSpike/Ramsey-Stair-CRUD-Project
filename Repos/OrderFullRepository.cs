@@ -31,10 +31,10 @@ namespace Ramsey_Stair_CRUD_Project.Repos
          return _conn.Query<Rail>("SELECT * FROM Rail WHERE HouseID = @id;", new { id = id});
         }
 
-        public IEnumerable<BalusterType> GetBalusterTypes()
+        public IEnumerable<BalusterStyle> GetBalusterStyle()
         {
            
-          return _conn.Query<BalusterType>("SELECT * FROM BalusterType;");
+          return _conn.Query<BalusterStyle>("SELECT * FROM balusterstyle;");
         }
 
         public IEnumerable<Builder> GetBuilders()
@@ -84,15 +84,10 @@ namespace Ramsey_Stair_CRUD_Project.Repos
 
             return _conn.Query<WallAccess>("SELECT * FROM wallaccess WHERE HouseID = @id;", new {id = id});
         }
-
-        public void InsertOrderFull(OrderFull o)
+  
+        public void UpdateLotNum(OrderFull o)
         {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateOrderFull(OrderFull o)
-        {
-            throw new NotImplementedException();
+            _conn.Execute("UPDATE orderfull SET LotNum = @LotNum WHERE HouseID = @id;", new { LotNum = o.LotNum, id = o.HouseID });
         }
         public OrderFull FullOrder(int id) 
         {
@@ -116,6 +111,74 @@ namespace Ramsey_Stair_CRUD_Project.Repos
         {
             var order = _conn.QuerySingle<OrderFull>("SELECT * FROM orderfull WHERE LotNum = @lotNum;", new { lotNum = lotNum });
             return order.HouseID;
+        }      
+
+        public void UpdateHouseDetails(OrderFull o)
+        {
+            _conn.Execute("UPDATE orderfull SET " +
+                "MeasureDone = @measuredone, " +
+                "MeasureDate = @measuredate," +
+                "MeasureState = @measurestate," +
+                "InstallDone = @installdone," +
+                "InstallDate = @installdate," +
+                "BuilderID = @builderID," +
+                "Address = @address," +
+                "SubDiv= @subdiv," +
+                "HardwareColor = @hardwarecolor," +
+                "StainColor = @staincolor," +
+                "WI = @wi," +
+                "Notes = @notes " +
+                "WHERE HouseID = @houseID;", new
+                {
+                    measuredone = o.MeasureDone,
+                    measuredate = o.MeasureDate,
+                    measurestate = o.MeasureState,
+                    installdone = o.InstallDone,
+                    installdate = o.InstallDate,
+                    builderID = o.BuilderID,
+                    address = o.Address,
+                    subdiv = o.SubDiv,
+                    hardwarecolor = o.HardwareColor,
+                    staincolor = o.StainColor,
+                    WI = o.WI,
+                    notes = o.Notes,
+                    houseID = o.HouseID
+                });
+        }
+
+        public void UpdateMillWork(OrderFull o)
+        {
+            _conn.Execute("UPDATE orderfull SET " +
+               "PitchNewel = @PitchNewel, " +
+               "PitchSleeve = @PitchSleeve," +
+               "MiscPitch = @MiscPitch," +
+               "Hippo = @Hippo," +
+               "FlatNewel = @FlatNewel," +
+               "FlatSleeve = @FlatSleeve," +
+               "MiscFlat = @MiscFlat," +
+               "MiscFlatSleeve= @MiscFlatSleeve," +
+               "PitchBal = @PitchBal," +
+               "FlatBal = @FlatBal," +
+               "PitchRose = @PitchRose," +
+               "FlatRose = @FlatRose, " +
+               "balStyleID = @balstyleID " +
+               "WHERE HouseID = @houseID;", new
+               {
+                    PitchNewel = o.PitchNewel,
+                    PitchSleeve = o.PitchSleeve,
+                    MiscPitch = o.MiscPitch,
+                    Hippo = o.Hippo,
+                    FlatNewel = o.FlatNewel,
+                    FlatSleeve = o.FlatSleeve,
+                    MiscFlat = o.MiscFlat,
+                    MiscFlatSleeve= o.MiscFlatSleeve,
+                    PitchBal = o.PitchBal,
+                    FlatBal = o.FlatBal,
+                    PitchRose = o.PitchRose,
+                    FlatRose = o.FlatRose,
+                    balStyleID = o.BalStyleID,
+                    houseID = o.HouseID
+               });
         }
     }
 }

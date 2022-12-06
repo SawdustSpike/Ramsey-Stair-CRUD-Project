@@ -18,10 +18,11 @@ namespace Ramsey_Stair_CRUD_Project.Repos
             _conn.Execute("DELETE FROM Rail WHERE RailID = @id;", new { id = r.RailID });
         }
 
-        public IEnumerable<Rail> GetAllRails()
+        public IEnumerable<Rail> GetAllRails(int id)
         {
-            return _conn.Query<Rail>("SELECT * FROM Rail;");
+            return _conn.Query<Rail>("SELECT * FROM Rail WHERE HouseID = @id;", new { id = id });
         }
+
 
         public void InsertRail(Rail r)
         {
@@ -69,7 +70,11 @@ namespace Ramsey_Stair_CRUD_Project.Repos
             return _conn.Query<CapType>("SELECT CapTypeID, CapType as CapTypes FROM captype;");
 
         }
-     
 
+        public OrderFull GetLotNum(int id)
+        {
+            var lotNum = _conn.QuerySingle<OrderFull>("SELECT * FROM orderfull WHERE HouseID = @id", new { id = id });
+            return lotNum;
+        }
     }
 }

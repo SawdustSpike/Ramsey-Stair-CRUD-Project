@@ -1,2 +1,58 @@
-﻿@Model OrderFull
+﻿@model OrderFull
 
+<hr1>Edit @Model.LotNum Mill Work</hr1>
+
+@using (Html.BeginForm("MillWorkToDatebase", "OrderFull", "Post"))
+{
+    <input asp-for="HouseID" type="hidden" value="@Model.HouseID" />
+
+    
+
+    <label asp-for="PitchNewel" class="control-label">Pitch Newels</label>
+    <input type="number" name="PtichNewel" class="form-control" value="@Model.PitchNewel" />
+
+    <label asp-for="PitchSleeve" class="control-label">Sleeved Pitch Newels</label>
+    <input type="text" name="PitchSleeve" class="form-control" value="@Model.PitchSleeve" />
+
+    <label asp-for="MiscPitch" class="control-label">Misc Pitch Newels</label>
+    <input type="text" name="MiscPitch" class="form-control" value="@Model.MiscPitch" />
+
+    <label asp-for="Hippo" class="control-label">Victorian Pitch Newels (Hippo)</label>
+    <input type="text" name="Hippo" class="form-control" value="@Model.Hippo" />
+
+    <label asp-for="FlatNewel" class="control-label">Flat Newels</label>
+    <input type="text" name="FlatNewel" class="form-control" value="@Model.FlatNewel" />
+
+    <label asp-for="FlatSleeve" class="control-label">Sleeved Flat</label>
+    <input type="text" name="FlatSleeve" class="form-control" value="@Model.FlatSleeve" />
+
+    <label asp-for="MiscFlat" class="control-label">Misc Flats</label>
+    <input type="text" name="MiscFlat" class="form-control" value="@Model.MiscFlat" />
+
+    <label asp-for="MiscFlatSleeve" class="control-label">Sleeved Misc Flat</label>
+    <input type="text" name="MiscFlatSleeve" class="form-control" value="@Model.MiscFlatSleeve" />
+
+    <div class="form-group">
+        <label for="">Select a Balulster Style</label>
+        <select class="form-control" name="BalStyleID" value="@Model.BalStyleID">
+            @foreach (var style in ViewBag.Balusters)
+            {
+                <option value="@style.BalStyleID">@style.BalStyle</option>
+            }
+        </select>
+    </div>
+
+    <label asp-for="PitchBal" class="control-label">Pitch Balusters</label>
+    <input type="text" name="PitchBal" class="form-control" value="@Model.PitchBal" />
+
+    <label asp-for="FlatBal" class="control-label">Flat Balusters</label>
+    <input type="text" name="FlatBal" class="form-control" value="@Model.FlatBal" />
+      
+    <label asp-for="PitchRose" class="control-label">Pitch Rosettes</label>
+    <input type="text" name="PitchRose" class="form-control" value="@Model.PitchRose" />
+
+     <label asp-for="FlatRose" class="control-label">Flat Rosettes</label>
+    <input type="text" name="FlathRose" class="form-control" value="@Model.FlatRose" />
+
+    <input type="submit" value="Update MillWork" class="btn btn-primary" />
+}

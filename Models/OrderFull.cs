@@ -4,8 +4,8 @@ namespace Ramsey_Stair_CRUD_Project.Models
 {
     public class OrderFull
     {
-        public int? OrderID { get; set; }
-        public bool MeasureDone { get; set; } = false;
+        public string? LotNum { get; set; }
+        public bool MeasureDone { get; set; } = true;
         public string? MeasureDate { get; set; }
         public string? MeasureState { get; set; }
         public string? InstallDate { get; set; }
@@ -14,7 +14,7 @@ namespace Ramsey_Stair_CRUD_Project.Models
         public string? InvoiceDate { get; set; }
         public int? PitchBal { get; set; } = 0;
         public int FlatBal { get; set; } = 0;
-        public int? BalTypeID { get; set; } 
+        public int? BalStyleID { get; set; } 
         public int? HouseID { get; set; }
         public string? Address { get; set; }
         public string? Notes { get; set; }
@@ -24,11 +24,11 @@ namespace Ramsey_Stair_CRUD_Project.Models
         public string? HardwareColor { get; set; }
         public string StainColor { get; set; }
         public bool WI { get; set; } = false;
-        public int Pitch { get; set; } = 0;
+        public int PitchNewel { get; set; } = 0;
         public int PitchSleeve { get; set; } = 0;
         public int MiscPitch { get; set; } = 0;
         public int Hippo { get; set; } = 0;
-        public int Flat { get; set; } = 0;
+        public int FlatNewel { get; set; } = 0;
         public int FlatSleeve { get; set; } = 0;
         public int MiscFlat { get; set; } = 0;
         public int MiscFlatSleeve { get; set; } = 0;
@@ -39,7 +39,7 @@ namespace Ramsey_Stair_CRUD_Project.Models
         public IEnumerable<WallAccess>? WallAccesses { get; set; }
         public IEnumerable<Niche>? Niches { get; set; }
         public IEnumerable<Mantle>? Mantles { get; set; }
-        public string? LotNum { get; set; }
+        
 
 
 

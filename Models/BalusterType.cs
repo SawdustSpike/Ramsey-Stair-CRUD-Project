@@ -1,8 +1,8 @@
 ﻿namespace Ramsey_Stair_CRUD_Project.Models
 {
-    public class BalusterType
+    public class BalusterStyle
     {
-        public int BalTypeID { get; set; }
-        public string BalType { get; set; }
+        public int BalStyleID { get; set; }
+        public string BalStyle { get; set; }
     }
 }

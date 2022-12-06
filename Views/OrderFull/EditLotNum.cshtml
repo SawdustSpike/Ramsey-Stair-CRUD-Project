@@ -2,9 +2,9 @@
 
 <h2>Edit @Model.LotNum</h2>
 
-@using (Html.BeginForm("EditHouse", "OrderFull", "Post"))
+@using (Html.BeginForm("EditLotNumToDatabase", "OrderFull", "Post"))
 {
-    <input asp-for="HouseID" type="hidden" value="" />
+    <input asp-for="HouseID" type="hidden" value="@Model.HouseID" />
 
     <label asp-for="LotNum" class="control-label">Enter a New Lot Number</label>
     <input type="text" name="LotNum" class="form-control" value="" />

@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<Rail>
 
-    <h2> Browse Rail Lines</h2>
+    <h2>Known Rail Lines for @ViewBag.LotNum</h2>
     <div style="display: block">
-          <a href="/Rail/InsertRail/">Create A Line Of Rail</a>
+    <a href="/Rail/InsertRail/@ViewBag.HouseID">Create A Line Of Rail for @ViewBag.LotNum</a>
     </div>
     <table class="table">
         <tr>
@@ -11,8 +11,7 @@
             <th>RailStyle</th>
             <th>RailLength</th>
             <th>CapType</th>
-            <th>CapLength</th>
-            <th>HouseID</th>
+            <th>CapLength</th>            
         </tr>
         @foreach (var rail in @Model)
         {
@@ -22,8 +21,10 @@
                 <td>@rail.RailStyleID</td>
                 <td>@rail.RailLength</td>
                 <td>@rail.CapTypeID</td>
-                <td>@rail.CapLength</td>
-                <td>@rail.HouseID</td>
-            </tr>
-            
+                <td>@rail.CapLength</td>             
+            </tr>          
         }
+    </table>
+<div style="display: block">
+<a href="/OrderFull/EditMenu/@ViewBag.HouseID">Return to Edit Menu for @ViewBag.LotNum</a>
+    </div>
