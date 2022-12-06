@@ -1,0 +1,35 @@
+﻿@model OrderFull
+<h1>Update @Model.LotNum</h1>
+
+<div style="display: block">
+    <a href="/OrderFull/EditLotNum/@Model.HouseID">Edit Lot Number</a>
+    </div>
+
+<div style="display: block">
+    <a href="/OrderFull/EditHouseDetails/@Model.HouseID">Edit House Details</a>
+    <p>Measure Info, Install Info, Invoice Number, Builder, Address, Model, Sub-Division, Hardware Color, Stain Color</p>
+    </div>
+
+<div style="display: block">
+    <a href="/Rail/Index/@Model.HouseID">Add/Edit Lines of Rail</a>
+    </div>
+
+<div style="display: block">
+    <a href="/OrderFull/MillWork/@Model.HouseID">Add/Edit Newels/Rosettes/Balusters Count</a>
+    </div>
+
+<div style="display: block">
+    <a href="/Mantle/Index/@Model.HouseID">Add/Edit Mantles</a>
+    </div>
+
+<div style="display: block">
+    <a href="/TubFront/Index/@Model.HouseID">Add/Edit Tub Fronts</a>
+    </div>
+
+<div style="display: block">
+    <a href="/Niche/Index/@Model.HouseID">Add/Edit Niches Count</a>
+    </div>
+
+<div style="display: block">
+    <a href="/WallAcess/Index/@Model.HouseID">Add/Edit Wall Accesses Count</a>
+    </div>

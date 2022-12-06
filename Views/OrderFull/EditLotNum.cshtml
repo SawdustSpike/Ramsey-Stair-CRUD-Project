@@ -1,8 +1,8 @@
-﻿@model House
+﻿@model OrderFull
 
 <h2>Edit @Model.LotNum</h2>
 
-@using (Html.BeginForm("EditHouse", "House", "Post"))
+@using (Html.BeginForm("EditHouse", "OrderFull", "Post"))
 {
     <input asp-for="HouseID" type="hidden" value="" />
 

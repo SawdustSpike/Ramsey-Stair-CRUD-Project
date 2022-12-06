@@ -13,10 +13,10 @@ namespace Ramsey_Stair_CRUD_Project.Repos
         {
             _conn = conn;
         }
-        public void DeleteOrderFull(int id)
+        public void DeleteOrderFull(OrderFull order)
         {
             
-           _conn.Execute("DELETE FROM orderfull WHERE HouseID = @id;", new { id = id });
+           _conn.Execute("DELETE FROM orderfull WHERE HouseID = @id;", new { id = order.HouseID });
          
         }
 
@@ -47,13 +47,7 @@ namespace Ramsey_Stair_CRUD_Project.Repos
         {
           
         return _conn.Query<CapType>("SELECT CapTypeID, CapType as CapTypes FROM captype;");
-        }
-
-        public string GetLotNumber(int id)
-        {
-           
-         return _conn.QuerySingle<LotNumber>("SELECT * FROM house WHERE HouseID = @id;", new {id=id}).LotNum;
-        }
+        }       
        
         public IEnumerable<Mantle> GetMantles(int id)
         {
@@ -104,10 +98,24 @@ namespace Ramsey_Stair_CRUD_Project.Repos
         {
             return _conn.QuerySingle<OrderFull>("SELECT * FROM orderfull WHERE HouseID = @id;", new { id = id });
         }
-
-        public IEnumerable<LotNumber> GetLotNumbers()
+        
+        public void InsertHouse(OrderFull o)
         {
-            return _conn.Query<LotNumber>("SELECT * FROM house;");
+            _conn.Execute("INSERT INTO orderfull (LotNum)" +
+                "VALUES (@LotNum);",
+                new { lotNum = o.LotNum });
+
+        }
+
+        public OrderFull GetOrderFull(int id)
+        {
+            return _conn.QuerySingle<OrderFull>("SELECT * FROM orderfull WHERE HouseID = @id;", new { id = id });
+        }
+
+        public int? GetHouseID(string lotNum)
+        {
+            var order = _conn.QuerySingle<OrderFull>("SELECT * FROM orderfull WHERE LotNum = @lotNum;", new { lotNum = lotNum });
+            return order.HouseID;
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<OrderFull>
 
     <h2> Browse Jobs</h2>
-    <div style="display: block"
-    <a href="/House/CreateNewHouse/">Create a New Work Order</a>
+    <div style="display: block">
+    <a href="/OrderFull/CreateNewHouse/">Create a New Work Order</a>
     </div>
     <table class="table">
         <tr>
@@ -18,7 +18,7 @@
         {
             <tr>
             
-                <td><a href=/OrderFull/FullOrder/@order.HouseID>@order.HouseID</a></td> 
+                <td><a href=/OrderFull/FullOrder/@order.HouseID>@order.LotNum</a></td> 
                 <td>@order.MeasureDone</td>
                 <td>@order.MeasureDate</td>
                 <td>@order.InstallDone</td>

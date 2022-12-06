@@ -11,6 +11,6 @@ namespace Ramsey_Stair_CRUD_Project.Repos.Interfaces
         public IEnumerable<RailStyle> GetRailStyle();
         public IEnumerable<RailType> GetRailType();
         public IEnumerable<CapType> GetCapType();
-        public IEnumerable<LotNumber> GetLotNumbers();
+       
     }
 }

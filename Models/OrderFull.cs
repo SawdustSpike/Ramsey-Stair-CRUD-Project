@@ -39,7 +39,7 @@ namespace Ramsey_Stair_CRUD_Project.Models
         public IEnumerable<WallAccess>? WallAccesses { get; set; }
         public IEnumerable<Niche>? Niches { get; set; }
         public IEnumerable<Mantle>? Mantles { get; set; }
-        public string? LotNumber { get; set; }
+        public string? LotNum { get; set; }
 
 
 

@@ -2,16 +2,11 @@
 
 <hr1>Edit @Model.HouseID </hr1>
 
-@using (Html.BeginForm("EditOrderDeets", "OrderFull", "Post"))
+@using (Html.BeginForm("EditOrderDetails", "OrderFull", "Post"))
 {
     <input asp-for="OrderID" type="hidden" value="@Model.OrderID" />
 
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="MeasureDone" id="@Model.MeasureDone" value="true">
-        <label class="form-check-label" for="@Model.MeasureDone">
-            Measure Complete
-        </label>
-    </div>
+    
 
     <label asp-for="MeasureDone" class="control-label">Has This House been Measured?</label>
     <input type="text" name="MeasureDone" class="form-control" value="" />
@@ -39,7 +34,7 @@
         <select class="form-control" name="BuilderID" value="">
             @foreach (var cat in ViewBag.BuilderID)
             {
-                <option value="@ViewBag.BuilderID">@ViewBag.BuilderID @ViewBag.BuilderName</option>
+                <option value="@ViewBag.BuilderID">@ViewBag.BuilderName</option>
             }
         </select>
     </div>
@@ -59,7 +54,7 @@
     <label asp-for="WI" class="control-label">Does This House Get Wrought Iron Balusters</label>
     <input type="text" name="WI" class="form-control" value="" />
 
-      <label asp-for="Notes" class="control-label">Notes</label>
+    <label asp-for="Notes" class="control-label">Notes</label>
     <input type="text" name="Notes" class="form-control" value="" />
 
 

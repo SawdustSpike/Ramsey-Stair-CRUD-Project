@@ -69,10 +69,7 @@ namespace Ramsey_Stair_CRUD_Project.Repos
             return _conn.Query<CapType>("SELECT CapTypeID, CapType as CapTypes FROM captype;");
 
         }
-        public IEnumerable<LotNumber> GetLotNumbers()
-        {
-            return _conn.Query<LotNumber>("SELECT * FROM house;");
-        }
+     
 
     }
 }

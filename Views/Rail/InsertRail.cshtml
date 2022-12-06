@@ -44,15 +44,7 @@
     <label asp-for="CapLength" class="control-label">What Length Does the Cap Board Need to be cut to?</label>
     <input type="number" step="0.01" name="CapLength" class="form-control" value="" />
 
-    <div class="form-group">
-        <label for="">Which House is This Being Installed In?</label>
-            <select class="form-control" name="HouseID" value="">
-            @foreach (var lots in ViewBag.LotNumbers)
-            {
-                        <option value="@lots.HouseID">@lots.HouseID @lots.LotNum</option>
-            }
-            </select>
-        </div>
+   
 
         <input type="submit" value="Create Rail" class="btn btn-primary" />
 

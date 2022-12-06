@@ -1,8 +1,8 @@
-﻿@model House
+﻿@model OrderFull
 
 <h2>Create a New WorkOrder</h2>
 
-@using (Html.BeginForm("CreateNewHouse", "House", "Post"))
+@using (Html.BeginForm("InsertHouseToDatabase", "OrderFull", "Post"))
 {
     <input asp-for="HouseID" type="hidden" value="" />
 

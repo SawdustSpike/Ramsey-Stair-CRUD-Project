@@ -5,7 +5,8 @@ namespace Ramsey_Stair_CRUD_Project.Repos.Interfaces
     public interface IOrderFullRepository
     {
         public IEnumerable<OrderFull> GetAllOrderFull();
-        public void DeleteOrderFull(int id);
+        public OrderFull GetOrderFull(int id);
+        public void DeleteOrderFull(OrderFull order);
         public void UpdateOrderFull(OrderFull o);
         public void InsertOrderFull(OrderFull o);
         public IEnumerable<WallAccess> GetWallAccesses(int id);
@@ -15,11 +16,13 @@ namespace Ramsey_Stair_CRUD_Project.Repos.Interfaces
         public IEnumerable<Rail> GetAllRail(int id);
         public IEnumerable<RailStyle> GetRailStyle();
         public IEnumerable<RailType> GetRailType();
-        public IEnumerable<CapType> GetCapType();
-        public IEnumerable<LotNumber> GetLotNumbers();
+        public IEnumerable<CapType> GetCapType();   
         public IEnumerable<Builder> GetBuilders();
         public IEnumerable<BalusterType> GetBalusterTypes();
         public OrderFull FullOrder(int id);
-        public string GetLotNumber(int id);
+        public void InsertHouse(OrderFull o);
+
+        public int? GetHouseID(string lotNum);
+      
     }
 }

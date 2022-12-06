@@ -27,7 +27,7 @@ namespace Ramsey_Stair_CRUD_Project.Controllers
             ViewBag.RailStyles = repo.GetRailStyle();
             ViewBag.RailTypes = repo.GetRailType();
             ViewBag.CapTypes = repo.GetCapType();
-            ViewBag.LotNumbers = repo.GetLotNumbers();
+            
             
             return View(new Rail());
         }

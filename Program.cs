@@ -32,7 +32,6 @@ builder.Services.AddScoped<IDbConnection>((s) =>
 
 builder.Services.AddTransient<IAdminRepository, AdminRepository>();
 builder.Services.AddTransient<IBalusterRepository, BalusterRepository>();
-builder.Services.AddTransient<IHouseRepository, HouseRepository>();
 builder.Services.AddTransient<IMantleRepository, MantleRepository>();
 builder.Services.AddTransient<INewelRepository, NewelRepository>();
 builder.Services.AddTransient<INicheRepository, NicheRepository>();
