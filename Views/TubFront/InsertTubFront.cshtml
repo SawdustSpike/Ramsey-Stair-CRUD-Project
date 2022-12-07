@@ -1,0 +1,21 @@
+﻿@model TubFront
+
+<h2>Create a New Tub Front</h2>
+
+@using (Html.BeginForm("InsertTubFrontToDatabase", "TubFront", "Post"))
+{
+    <input asp-for="TubFrontID" type="hidden" value="" />
+    <input asp-for="HouseID" type="hidden" value="@ViewBag.HouseID" />
+
+    <label asp-for="TubFrontHeight" class="control-label">How tall is your Tub Front?</label>
+    <input type="number" step="0.01" name="TubFrontHeight" class="form-control" value="@Model.TubFrontHeight" />
+
+    <label asp-for="TubFrontLength" class="control-label">How Long is your Tub Front?</label>
+    <input type="number" step="0.01" name="TubFrontLength" class="form-control" value="@Model.TubFrontLength" />
+
+    <label asp-for="TubFrontQuantity" class="control-label">How Many Tub Fronts Do You Need?</label>
+    <input type="number" step="0.01" name="TubFrontQuantity" class="form-control" value="@Model.TubFrontQuantity" />
+
+    <input type="submit" value="Create TubFront" class="btn btn-primary" />
+
+}

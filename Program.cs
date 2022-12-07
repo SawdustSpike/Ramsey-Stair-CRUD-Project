@@ -30,13 +30,10 @@ builder.Services.AddScoped<IDbConnection>((s) =>
     return conn;
 });
 
-builder.Services.AddTransient<IAdminRepository, AdminRepository>();
-builder.Services.AddTransient<IBalusterRepository, BalusterRepository>();
+
 builder.Services.AddTransient<IMantleRepository, MantleRepository>();
-builder.Services.AddTransient<INewelRepository, NewelRepository>();
 builder.Services.AddTransient<INicheRepository, NicheRepository>();
 builder.Services.AddTransient<IRailRepository, RailRepository>();
-builder.Services.AddTransient<IRosetteRepository, RosetteRepository>();
 builder.Services.AddTransient<ITubFrontRepository, TubFrontRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IWallAccessRepository, WallAccessRepository>();

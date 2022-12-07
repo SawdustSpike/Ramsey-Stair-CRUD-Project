@@ -1,5 +1,26 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<WallAccess>
+
+<h2>Known Wall Accesss for @ViewBag.LotNum</h2>
+<div style="display: block">
+    <a href="/WallAccess/InsertWallAccess/@ViewBag.HouseID">Create A WallAccess for @ViewBag.LotNum</a>
+</div>
+<table class="table">
+    <tr>
+        <th>Wall Access Height</th>
+        <th>Wall Access Width</th>
+        <th>Wall Access Quantity</th>
+        <th>Notes</th>
+    </tr>
+    @foreach (var wallAccess in @Model)
+    {
+        <tr>
+            <td>@wallAccess.WallAccessHeight</td>
+            <td>@wallAccess.WallAccessWidth</td>
+            <td>@wallAccess.WallAccessQuantity</td>
+            <td>@wallAccess.WallAccessNotes</td>
+        </tr>
+    }
+    </table>
+<div style="display: block">
+    <a href="/OrderFull/EditMenu/@ViewBag.HouseID">Return to Edit Menu for @ViewBag.LotNum</a>
+</div>

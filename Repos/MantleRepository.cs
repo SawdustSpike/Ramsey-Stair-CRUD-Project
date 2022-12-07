@@ -20,9 +20,9 @@ namespace Ramsey_Stair_CRUD_Project.Repos
                 _conn.Execute("DELETE FROM Mantle WHERE MantleID = @id;", new { id = m.MantleID });
             }
 
-            public IEnumerable<Mantle> GetAllMantles()
+            public IEnumerable<Mantle> GetAllMantles(int id)
             {
-                return _conn.Query<Mantle>("SELECT * FROM Mantle;");
+                return _conn.Query<Mantle>("SELECT * FROM Mantle WHERE HouseID = @id;", new {id = id});
             }
 
             public void InsertMantle(Mantle m)
@@ -38,6 +38,11 @@ namespace Ramsey_Stair_CRUD_Project.Repos
                 _conn.Execute("UPDATE Mantles SET MantleType = @MAntleType, MantleNotes = @MantleNotes, HouseID = @HouseID, MantleQuantity = @MantleQuantity;",
                     new { MantleType = m.MantleType, MantleNotes = m.MantleNotes, HouseID = m.HouseID, MantleQuantity = m.MantleQuantity });
         }
+        public OrderFull GetLotNum(int id)
+        {
+            var lotNum = _conn.QuerySingle<OrderFull>("SELECT * FROM orderfull WHERE HouseID = @id", new { id = id });
+            return lotNum;
         }
     }
+ }
 

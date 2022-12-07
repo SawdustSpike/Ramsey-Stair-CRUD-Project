@@ -14,27 +14,33 @@ namespace Ramsey_Stair_CRUD_Project.Repos
             _conn = conn;
         }
 
-        public void DeleteNiche(Niche n)
+        public void DeleteNiche(Niche m)
         {
-            _conn.Execute("DELETE FROM Niche WHERE nicheID = @id;", new { id = n.NicheID });
+            _conn.Execute("DELETE FROM Niche WHERE NicheID = @id;", new { id = m.NicheID });
         }
 
-        public IEnumerable<Niche> GetAllNiches()
+        public IEnumerable<Niche> GetAllNiches(int id)
         {
-            return _conn.Query<Niche>("SELECT * FROM niche;");
+            return _conn.Query<Niche>("SELECT * FROM Niche WHERE HouseID = @id;", new { id = id });
         }
 
-        public void InsertNiche(Niche n)
+        public void InsertNiche(Niche m)
         {
-            _conn.Execute("INSERT INTO niche (NicheHeight, NicheWidth, NicheQuantity, HouseID)" +
+            _conn.Execute("INSERT INTO Niche (NicheHeight, NicheWidth, NicheQuantity, HouseID)" +
                 "VALUES (@NicheHeight, @NicheWidth, @NicheQuantity, @HouseID);",
-                new { NicheHeight = n.NicheHeight, NicheWidth = n.NicheWidth, NicheQuantity = n.NicheQuantity, HouseID = n.HouseID });
+                new { NicheHeight = m.NicheHeight, NicheWidth = m.NicheWidth, NicheQuantity = m.NicheQuantity, HouseID = m.HouseID,  });
+
         }
 
-        public void UpdateNiche(Niche n)
+        public void UpdateNiche(Niche m)
         {
-            _conn.Execute("UPDATE niche SET NicheHeight = @NicheHeight, NicheWidth = @NicheWidth, NicheQuantity = @NicheQuantity, HouseID = @HouseID;",
-                new { NicheHeight = n.NicheHeight, NicheWidth = n.NicheWidth, NicheQuantity = n.NicheQuantity, HouseID = n.HouseID });
+            _conn.Execute("UPDATE Niches SET NicheHeight = @NicheHeight, NicheWidth = @NicheWidth, NicheQuantity = @NicheQuantity, HouseID = @HouseID, ;",
+                new { NicheHeight = m.NicheHeight, NicheWidth = m.NicheWidth, NicheQuantity = m.NicheQuantity, HouseID = m.HouseID, });
+        }
+        public OrderFull GetLotNum(int id)
+        {
+            var lotNum = _conn.QuerySingle<OrderFull>("SELECT * FROM orderfull WHERE HouseID = @id", new { id = id });
+            return lotNum;
         }
     }
 }

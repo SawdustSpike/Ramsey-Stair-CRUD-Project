@@ -19,9 +19,9 @@ namespace Ramsey_Stair_CRUD_Project.Repos
                 _conn.Execute("DELETE FROM TubFront WHERE TubFrontID = @id;", new { id = t.TubFrontID });
             }
 
-            public IEnumerable<TubFront> GetAllTubFronts()
+            public IEnumerable<TubFront> GetAllTubFronts(int id)
             {
-                return _conn.Query<TubFront>("SELECT * FROM TubFront;");
+                return _conn.Query<TubFront>("SELECT * FROM TubFront WHERE HouseID = @id;", new {id = id});
             }
 
         public void InsertTubFront(TubFront t)
@@ -35,5 +35,10 @@ namespace Ramsey_Stair_CRUD_Project.Repos
                 _conn.Execute("UPDATE TubFront SET TubFrontLength = @TubFrontLength, TubeFrontHeight = @TubFrontHeight, TubFrontQuantity = @TubFrontQuantity, HouseID = @HouseID;",
                    new { TubFrontLength = t.TubFrontLength, TubFrontHeight = t.TubFrontHeight, TubFrontQuantity = t.TubFrontQuantity, HouseID = t.HouseID });
         }
+        public OrderFull GetLotNum(int id)
+        {
+            var lotNum = _conn.QuerySingle<OrderFull>("SELECT * FROM orderfull WHERE HouseID = @id", new { id = id });
+            return lotNum;
         }
+    }
 }

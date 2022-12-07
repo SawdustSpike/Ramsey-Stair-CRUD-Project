@@ -1,5 +1,24 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<TubFront>
+
+<h2>Known Tub Fronts for @ViewBag.LotNum</h2>
+<div style="display: block">
+    <a href="/TubFront/InsertTubFront/@ViewBag.HouseID">Create A TubFront for @ViewBag.LotNum</a>
+</div>
+<table class="table">
+    <tr>
+        <th>Tub Fronts Height</th>
+        <th>Tub Front Width</th>
+        <th>Tub Front Quantity</th>
+    </tr>
+    @foreach (var tubFront in @Model)
+    {
+        <tr>
+            <td>@tubFront.TubFrontHeight</td>
+            <td>@tubFront.TubFrontLength</td>
+            <td>@tubFront.TubFrontQuantity</td>
+        </tr>
+    }
+</table>
+<div style="display: block">
+    <a href="/OrderFull/EditMenu/@ViewBag.HouseID">Return to Edit Menu for @ViewBag.LotNum</a>
+</div>
