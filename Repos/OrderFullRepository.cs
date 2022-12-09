@@ -121,6 +121,8 @@ namespace Ramsey_Stair_CRUD_Project.Repos
                 "MeasureState = @measurestate," +
                 "InstallDone = @installdone," +
                 "InstallDate = @installdate," +
+                "InvoiceNum = @invoicenum," +
+                "InvoiceDate = @invoicedate," +
                 "BuilderID = @builderID," +
                 "Address = @address," +
                 "SubDiv= @subdiv," +
@@ -135,6 +137,8 @@ namespace Ramsey_Stair_CRUD_Project.Repos
                     measurestate = o.MeasureState,
                     installdone = o.InstallDone,
                     installdate = o.InstallDate,
+                    invoicenum = o.InvoiceNum,
+                    invoicedate = o.InvoiceDate,
                     builderID = o.BuilderID,
                     address = o.Address,
                     subdiv = o.SubDiv,

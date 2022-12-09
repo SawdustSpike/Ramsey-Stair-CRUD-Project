@@ -26,14 +26,15 @@ namespace Ramsey_Stair_CRUD_Project.Repos
 
         public void InsertRail(Rail r)
         {
-            _conn.Execute("INSERT INTO rail (RailLineNum, RailTypeID, RailStyleID, RailLength, CapTypeID, CapLength, HouseID)" +
-                "VALUES (@RailLineNum, @RailTypeID, @RailStyleID, @RailLength, @CapTypeID, @CapLength, @HouseID);",
+            _conn.Execute("INSERT INTO rail (RailLineNum, RailTypeID, RailStyleID, RailLength, ShoeLength, CapTypeID, CapLength, HouseID)" +
+                "VALUES (@RailLineNum, @RailTypeID, @RailStyleID, @RailLength, @ShoeLength, @CapTypeID, @CapLength, @HouseID);",
                 new
                 {
                     RailLineNum = r.RailLineNum,
                     RailTypeID = r.RailTypeID,
                     RailStyleID = r.RailStyleID,
                     RailLength = r.RailLength,
+                    ShoeLength = r.ShoeLength,
                     CapTypeID = r.CapTypeID,
                     CapLength = r.CapLength,
                     HouseID = r.HouseID
@@ -43,13 +44,14 @@ namespace Ramsey_Stair_CRUD_Project.Repos
 
         public void UpdateRail(Rail r)
         {
-            _conn.Execute("UPDATE Rail SET RailLineNum = @RailLineNum, RailTypeID = @RailTypeID, RailStyleID = @RailStyleID, RailLength = @RailLength, CapTypeID = @CapTypeID, CapLength = @CapLength, HouseID = @HouseID ;",
+            _conn.Execute("UPDATE Rail SET RailLineNum = @RailLineNum, RailTypeID = @RailTypeID, RailStyleID = @RailStyleID, RailLength = @RailLength, ShoeLength = @ShoeLength, CapTypeID = @CapTypeID, CapLength = @CapLength, HouseID = @HouseID ;",
                  new
                  {
                      RailLineNum = r.RailLineNum,
                      RailTypeID = r.RailTypeID,
                      RailStyleID = r.RailStyleID,
                      RailLength = r.RailLength,
+                     ShoeLength = r.ShoeLength,
                      CapTypeID = r.CapTypeID,
                      CapLength = r.CapLength,
                      HouseID = r.HouseID

@@ -6,12 +6,13 @@
     </div>
     <table class="table">
         <tr>
-            <th>RailLineNumber</th>
-            <th>RailType</th>
-            <th>RailStyle</th>
-            <th>RailLength</th>
-            <th>CapType</th>
-            <th>CapLength</th>            
+            <th>Rail Line Number</th>
+            <th>Rail Type</th>
+            <th>Rail Style</th>
+            <th>Rail Length</th>
+            <th>Shoe Rail Length</th>
+            <th>Cap board Type</th>
+            <th>Cap Board Length</th>            
         </tr>
         @foreach (var rail in @Model)
         {
@@ -20,6 +21,7 @@
                 <td>@rail.RailTypeID</td>
                 <td>@rail.RailStyleID</td>
                 <td>@rail.RailLength</td>
+                <td>@rail.ShoeLength</td>
                 <td>@rail.CapTypeID</td>
                 <td>@rail.CapLength</td>             
             </tr>          
@@ -28,3 +30,5 @@
 <div style="display: block">
 <a href="/OrderFull/EditMenu/@ViewBag.HouseID">Return to Edit Menu for @ViewBag.LotNum</a>
     </div>
+<img src="~/Images/Rail.jpg" alt="Mantle" width="60%" height="60%">
+

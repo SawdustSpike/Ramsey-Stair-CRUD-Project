@@ -17,4 +17,12 @@
     <Folder Include="bin\Debug\net6.0\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Images\Family Page.jpg" />
+    <None Include="wwwroot\Images\Mantle.jpg" />
+    <None Include="wwwroot\Images\Niches.jpg" />
+    <None Include="wwwroot\Images\Rail.jpg" />
+    <None Include="wwwroot\Images\RamseyStair.jpg" />
+  </ItemGroup>
+
 </Project>

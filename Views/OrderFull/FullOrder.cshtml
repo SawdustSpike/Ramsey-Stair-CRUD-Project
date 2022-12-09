@@ -40,7 +40,7 @@
 
     <tr>
 
-        <td>@Model.BuilderID</td>
+        <td>@Model.BuilderID</td> 
         <td>@Model.Address</td>
         <td>@Model.Model</td>
         <td>@Model.SubDiv</td>
@@ -108,9 +108,10 @@
             <th>RailType</th>
             <th>RailStyle</th>
             <th>RailLength</th>
-            <th>CapType</th>
-            <th>CapLength</th>
-            <th>HouseID</th>
+            <th>Shoe Length</th>
+            <th>Cap Type</th>
+            <th>Cap Length</th>
+            
         </tr>
         @foreach (var rail in @Model.Railines)
         {
@@ -119,9 +120,10 @@
                 <td>@rail.RailTypeID</td>
                 <td>@rail.RailStyleID</td>
                 <td>@rail.RailLength</td>
+                <td>@rail.ShoeLength</td>
                 <td>@rail.CapTypeID</td>
                 <td>@rail.CapLength</td>
-                <td>@rail.HouseID</td>
+                
             </tr>
         }
 </table>
