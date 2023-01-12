@@ -17,10 +17,10 @@
     <tr>
 
         <td>@Model.LotNum</td>
-        <td>@Model.MeasureDone</td>
+        <td>@(@Model.MeasureDone? "Yes" : "No")</td>
         <td>@Model.MeasureDate</td>
         <td>@Model.MeasureState</td>
-        <td>@Model.InstallDone</td>
+        <td>@(@Model.InstallDone? "Yes":"No")</td>
         <td>@Model.InstallDate</td>
         <td>@Model.InvoiceNum</td>
         <td>@Model.InvoiceDate</td>
@@ -39,8 +39,7 @@
     </tr>
 
     <tr>
-
-        <td>@Model.BuilderID</td> 
+        <td>@ViewBag.BuilderName</td>
         <td>@Model.Address</td>
         <td>@Model.Model</td>
         <td>@Model.SubDiv</td>
@@ -58,7 +57,7 @@
 
     </tr>
     <tr>
-        <td>@Model.BalStyleID</td>
+        <td>@ViewBag.BalusterType</td>
         <td>@Model.PitchBal</td>
         <td>@Model.FlatBal</td>
     </tr>
@@ -94,8 +93,8 @@
 </table>
 <table class="table">
     <tr>
-        <th>Pitch Balusters</th>
-        <th>Flat Balusters</th>
+        <th>Pitch Rosettes</th>
+        <th>Flat Rosettes</th>
     </tr>
     <tr>
         <td>@Model.PitchRose</td>

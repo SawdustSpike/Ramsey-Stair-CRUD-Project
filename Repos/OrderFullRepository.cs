@@ -43,6 +43,69 @@ namespace Ramsey_Stair_CRUD_Project.Repos
           return _conn.Query<Builder>("SELECT * FROM builder;");
         }
 
+        public string PickBuilder(int id)
+        {
+            var builder = GetBuilders(); 
+            foreach (Builder b in builder)
+            {
+                if (id == b.BuilderID)
+                {
+                    return b.BuilderName;
+                }
+            }
+            return "Builder Not Found";
+        }
+        public string PickBaluster(int id)
+        {
+            var baluster = GetBalusterStyle();
+            foreach (BalusterStyle b in baluster)
+            {
+                if (id == b.BalStyleID)
+                {
+                    return b.BalStyle;
+                }
+            }
+            return "Baluster Style Not Found";
+        }
+        public string PickRailStyle(int id)
+        {
+            var RailStyle = GetRailStyle();
+            foreach (RailStyle r in RailStyle)
+            {
+                if (id == r.RailStyleID)
+                {
+                    return r.RailStyles;
+                }
+            }
+            return "Rail Style Not Found";
+        }
+
+        public string PickRailType(int id)
+        {
+            var RailType = GetRailType();
+            foreach (RailType r in RailType)
+            {
+                if (id == r.RailTypeID)
+                {
+                    return r.RailTypes;
+                }
+            }
+            return "Rail Type Not Found";
+        }
+
+        public string PickCapType(int id)
+        {
+            var CapType = GetCapType();
+            foreach (CapType c in CapType)
+            {
+                if (id == c.CaptypeID)
+                {
+                    return c.CapTypes;
+                }
+            }
+            return "Cap Type Not Found";
+        }
+
         public IEnumerable<CapType> GetCapType()
         {
           

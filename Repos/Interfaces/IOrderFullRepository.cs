@@ -21,9 +21,11 @@ namespace Ramsey_Stair_CRUD_Project.Repos.Interfaces
         public IEnumerable<BalusterStyle> GetBalusterStyle();
         public OrderFull FullOrder(int id);
         public void InsertHouse(OrderFull o);
-
-
-
+        public string PickBuilder(int id);
+        public string PickBaluster(int id);
+        public string PickRailType(int id);
+        public string PickRailStyle(int id);
+        public string PickCapType(int id);
         public int? GetHouseID(string lotNum);
         public void UpdateHouseDetails(OrderFull o);
       

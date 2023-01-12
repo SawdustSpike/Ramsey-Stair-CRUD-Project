@@ -8,6 +8,7 @@ using System.Data;
 using Ramsey_Stair_CRUD_Project;
 using Ramsey_Stair_CRUD_Project.Repos.Interfaces;
 using Ramsey_Stair_CRUD_Project.Repos;
+using Ramsey_Stair_CRUD_Project.Service;
 
 //^^^^MUST HAVE USING DIRECTIVES^^^^
 
@@ -35,7 +36,6 @@ builder.Services.AddTransient<IMantleRepository, MantleRepository>();
 builder.Services.AddTransient<INicheRepository, NicheRepository>();
 builder.Services.AddTransient<IRailRepository, RailRepository>();
 builder.Services.AddTransient<ITubFrontRepository, TubFrontRepository>();
-builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IWallAccessRepository, WallAccessRepository>();
 builder.Services.AddTransient<IOrderFullRepository, OrderFullRepository>();
 

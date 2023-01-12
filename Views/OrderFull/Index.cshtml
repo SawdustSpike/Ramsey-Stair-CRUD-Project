@@ -1,4 +1,19 @@
 ﻿@model IEnumerable<OrderFull>
+@{ 
+    void ListOrderFull(OrderFull order, string clas)
+    {
+        <tr class="table-@clas">
+        <td><a href=/OrderFull/EditMenu/@order.HouseID>Update This House</a></td>
+        <td><a href=/OrderFull/FullOrder/@order.HouseID>@order.LotNum</a></td>
+        <td>@(@order.MeasureDone ? "Yes" : "No")</td>
+        <td>@order.MeasureDate</td>
+        <td>@(@order.InstallDone ? "Yes" : "No")</td>
+        <td>@order.InstallDate</td>
+        <td>@order.InvoiceNum</td>
+        <td>@order.InvoiceDate</td>
+        </tr>
+    }
+}
 
     <h2> Browse Jobs</h2>
     <div style="display: block">
@@ -15,19 +30,17 @@
             <th>InvoiceNumber</th>
             <th>Invoice Date</th>
         </tr>
-          @foreach (var order in @Model)
+    @foreach (var order in @Model)
+    {
+      
+        if (@order.InstallDone) 
         {
-            <tr>
-                <td><a href=/OrderFull/EditMenu/@order.HouseID>Update This House</a></td>
-                <td><a href=/OrderFull/FullOrder/@order.HouseID>@order.LotNum</a></td> 
-                <td>@order.MeasureDone</td>
-                <td>@order.MeasureDate</td>
-                <td>@order.InstallDone</td>
-                <td>@order.InstallDate</td>
-                <td>@order.InvoiceNum</td>
-                <td>@order.InvoiceDate</td>
-            </tr>
+           ListOrderFull(order, "success");
+        } 
+        else 
+        {             
+           ListOrderFull(order, "secondary");          
         }
-     
-    
-    </table>
+    }
+
+</table>

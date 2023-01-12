@@ -4,10 +4,14 @@
     {
         public int RailLineNum { get; set; }
         public int RailTypeID { get; set; }
+
+        public string RailType { get; set; }
         public int RailStyleID { get; set; }
+        public string RailStyle { get; set; }
         public double RailLength { get; set; }
         public double ShoeLength { get; set; }
         public int CapTypeID { get; set; }
+        public string CapType { get; set; }
         public double CapLength { get; set; }
         public int HouseID { get; set; }     
         public int RailID { get; set; }

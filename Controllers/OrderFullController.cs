@@ -57,12 +57,9 @@ namespace Ramsey_Stair_CRUD_Project.Controllers
         }
         public IActionResult FullOrder(int id)
         {
-            var order = repo.FullOrder(id);
-            ViewBag.RailStyles = repo.GetRailStyle();
-            ViewBag.RailTypes = repo.GetRailType();
-            ViewBag.CapTypes = repo.GetCapType();
-            ViewBag.Builders = repo.GetBuilders();
-            ViewBag.BalusterTypes = repo.GetBalusterStyle();
+            var order = repo.FullOrder(id);                      
+            ViewBag.BuilderName = repo.PickBuilder((int)order.BuilderID);
+            ViewBag.BalusterType = repo.PickBaluster((int)order.BalStyleID);
             order.Railines = repo.GetAllRail(id);
             order.Mantles = repo.GetMantles(id);
             order.TubFronts = repo.GetTubFronts(id);
