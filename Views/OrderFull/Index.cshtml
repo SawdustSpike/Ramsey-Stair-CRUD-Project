@@ -7,6 +7,7 @@
         <td><a href=/OrderFull/FullOrder/@order.HouseID>@order.LotNum</a></td>
         <td>@(@order.MeasureDone ? "Yes" : "No")</td>
         <td>@order.MeasureDate</td>
+        <td>@(@order.OnHold ? "Yes" : "No")</td>
         <td>@(@order.InstallDone ? "Yes" : "No")</td>
         <td>@order.InstallDate</td>
         <td>@order.InvoiceNum</td>
@@ -22,24 +23,32 @@
     <table class="table">
         <tr>
             <th>Edit This House</th>
-            <th>Lot Number</th>
-            <th>Measured?</th>
-            <th>Measured Date</th>
-            <th>Installed?</th>
-            <th>Installed Date</th>
-            <th>InvoiceNumber</th>
-            <th>Invoice Date</th>
+            <th>@Html.ActionLink("Lot Number", "Index", new { sortOrder = ViewBag.LotNumSortParm })</th>       
+            <th>Measured</th>
+            <th>@Html.ActionLink("Measure Date", "Index", new { sortOrder = ViewBag.MeasureDateSortParm })</th>
+            <th>On Hold</th>
+            <th>Installed</th>
+            <th>@Html.ActionLink("Install Date", "Index", new { sortOrder = ViewBag.InstallDateSortParm })</th>
+            <th>@Html.ActionLink("Invoice Number", "Index", new { sortOrder = ViewBag.InvoiceNumberSortParm })</th>
+            <th>@Html.ActionLink("Invoice Date", "Index", new { sortOrder = ViewBag.InvoiceDateSortParm })</th>
         </tr>
     @foreach (var order in @Model)
     {
-      
-        if (@order.InstallDone) 
+        if (order.OnHold)
         {
-           ListOrderFull(order, "success");
-        } 
-        else 
+           ListOrderFull(order, "danger");
+        }
+        else if (order.InstallDone)
         {             
-           ListOrderFull(order, "secondary");          
+           ListOrderFull(order, "success");          
+        }
+        else if(order.MeasureDone)
+        {
+            ListOrderFull(order, "primary");
+        }
+        else 
+        {
+            ListOrderFull(order, "secondary");
         }
     }
 

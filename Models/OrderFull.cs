@@ -9,15 +9,17 @@ namespace Ramsey_Stair_CRUD_Project.Models
         [StringLength(20)]
         public string? LotNum { get; set; }
         public bool MeasureDone { get; set; } = true;
-        
-        public DateTime MeasureDate { get; set; }
+        [StringLength(15)]
+        public string MeasureDate { get; set; }
         [StringLength(15)]
         public string? MeasureState { get; set; }
-     
-        public DateTime InstallDate { get; set; }
+        public bool OnHold { get; set; }
+        [StringLength(15)]
+        public string InstallDate { get; set; }
         public bool InstallDone { get; set; } = false;
         public int? InvoiceNum { get; set; }
-        public DateTime InvoiceDate { get; set; }
+        [StringLength(15)]
+        public string InvoiceDate { get; set; }
         public int? PitchBal { get; set; } = 0;
         public int FlatBal { get; set; } = 0;
         public int? BalStyleID { get; set; } 
@@ -30,7 +32,6 @@ namespace Ramsey_Stair_CRUD_Project.Models
         public string? Model { get; set; }
         [StringLength(20)]
         public string? SubDiv { get; set; }
-
         public int? BuilderID { get; set; }
         [StringLength(20)]
         public string? HardwareColor { get; set; }
@@ -51,11 +52,6 @@ namespace Ramsey_Stair_CRUD_Project.Models
         public IEnumerable<TubFront>? TubFronts { get; set; }
         public IEnumerable<WallAccess>? WallAccesses { get; set; }
         public IEnumerable<Niche>? Niches { get; set; }
-        public IEnumerable<Mantle>? Mantles { get; set; }
-        
-
-
-
-
+        public IEnumerable<Mantle>? Mantles { get; set; }    
     }
 }

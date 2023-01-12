@@ -8,6 +8,7 @@
         <th>Measured?</th>
         <th>Measured Date</th>
         <th>Measure State</th>
+        <th>House on Hold</th>
         <th>Installed?</th>
         <th>Installed Date</th>
         <th>InvoiceNumber</th>
@@ -20,6 +21,7 @@
         <td>@(@Model.MeasureDone? "Yes" : "No")</td>
         <td>@Model.MeasureDate</td>
         <td>@Model.MeasureState</td>
+        <td>@(@Model.OnHold ? "Yes" : "No")</td>
         <td>@(@Model.InstallDone? "Yes":"No")</td>
         <td>@Model.InstallDate</td>
         <td>@Model.InvoiceNum</td>

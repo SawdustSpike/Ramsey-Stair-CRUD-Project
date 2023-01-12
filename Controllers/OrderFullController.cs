@@ -68,13 +68,57 @@ namespace Ramsey_Stair_CRUD_Project.Controllers
 
             return View(order);
         }
-        public IActionResult Index()
-        {
-           
+        //public IActionResult Index()
+        //{
+            public ActionResult Index(string sortOrder)
+            {
+                
+                ViewBag.LotNumSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+                ViewBag.MeasureDateSortParm = sortOrder == "MDate" ? "Mdate_desc" : "MDate";
+            ViewBag.InvoiceNumberSortParm = sortOrder == "INum" ? "INum_desc" : "INum";
+            ViewBag.InstallDateSortParm = sortOrder == "IDate" ? "Idate_desc" : "IDate";
+            ViewBag.InvoiceDateSortParm = sortOrder == "VDate" ? "Vdate_desc" : "VDate";
             var order = repo.GetAllOrderFull();
+                switch (sortOrder)
+                {
+                    case "name_desc":
+                        order = order.OrderByDescending(s => s.LotNum);
+                        break;
+                    case "MDate":
+                        order = order.OrderBy(s => s.MeasureDate);
+                        break;
+                    case "Mdate_desc":
+                        order = order.OrderByDescending(s => s.MeasureDate);
+                        break;
+                case "INum":
+                    order = order.OrderBy(s => s.InvoiceNum);
+                    break;
+                case "INum_desc":
+                    order = order.OrderByDescending(s => s.InvoiceNum);
+                    break;
+                case "VDate":
+                    order = order.OrderBy(s => s.InvoiceDate);
+                    break;
+                case "Vdate_desc":
+                    order = order.OrderByDescending(s => s.InvoiceDate);
+                    break;
+                case "IDate":
+                    order = order.OrderBy(s => s.InstallDate);
+                    break;
+                case "Idate_desc":
+                    order = order.OrderByDescending(s => s.InstallDate);
+                    break;
 
-            return View(order);
-        }     
+                default:
+                        order = order.OrderBy(s => s.LotNum);
+                        break;
+                }
+                return View(order.ToList());
+            }
+            //var order = repo.GetAllOrderFull();
+
+            //return View(order);
+        //}     
         public IActionResult MillWork(int id)
         {
             ViewBag.Balusters = repo.GetBalusterStyle();

@@ -1,36 +1,35 @@
 ﻿@model OrderFull
 
-<hr1>Edit @Model.LotNum </hr1>
+<h2><u>Edit @Model.LotNum </u></h2>
 
 @using (Html.BeginForm("EditHouseDetailsToDatabase", "OrderFull", "Post"))
 {
     <input asp-for="HouseID" type="hidden" value="@Model.HouseID" />
-
-    <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" value="@Model.MeasureDone" checked name ="MeasureDone" id="exampleCheck1">
-        <label class="form-check-label"  for="exampleCheck1">Measure Complete</label>
-  </div> 
-
+    <br>
+    <td><input asp-for="@Model.MeasureDone" value="true" />Was This House Measured?</td>
+    <br>
+    <br>  
     <label asp-for="MeasureDate" class="control-label">When was this house Measured?</label>
     <input type="text" name="MeasureDate" class="form-control" value="@Model.MeasureDate" />
-
+    <br>
     <label asp-for="MeasureState" class="control-label">What was the Condition of the House when Measured?</label>
     <input type="text" name="MeasureState" class="form-control" value="@Model.MeasureState" />
-
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" value="@Model.InstallDone" checked name ="InstallDone" id="exampleCheck1">
-        <label class="form-check-label"  for="exampleCheck1">Install Complete</label>
-  </div>
-
+    <br>
+    <td><input asp-for="@Model.OnHold" value="true" />House On Hold</td>
+    <br>
+    <br>
+    <td><input asp-for="@Model.InstallDone" value="true"/>Install Done</td>
+    <br>
+    <br>
     <label asp-for="InstallDate" class="control-label">When was this House Installed?</label>
     <input type="text" name="InstallDate" class="form-control" value="@Model.InstallDate" />
-
+    <br>
     <label asp-for="InvoiceNum" class="control-label">Enter Invoice Number</label>
     <input type="number" name="InvoiceNum" class="form-control" value="@Model.InvoiceNum" />
-
+    <br>
     <label asp-for="InvoiceDate" class="control-label">Enter Invoice Date</label>
     <input type="text" name="InvoiceDate" class="form-control" value="@Model.InvoiceDate" />
-
+    <br>
     <div class="form-group">
         <label for="">Select a Builder</label>
         <select class="form-control" name="BuilderID" value="@Model.BuilderID">
@@ -40,31 +39,25 @@
             }
         </select>
     </div>
-
+    <br>
     <label asp-for="Address" class="control-label">What is the House's Address?</label>
     <input type="text" name="Address" class="form-control" value="@Model.Address" />
-
+    <br>
     <label asp-for="SubDiv" class="control-label">Enter a Sub-Division</label>
     <input type="text" name="Subdiv" class="form-control" value="@Model.SubDiv" />
-
+    <br>
     <label asp-for="HardwareColor " class="control-label">Enter The Hardware Color</label>
     <input type="text" name="HardwareColor" class="form-control" value="@Model.HardwareColor" />
-
+    <br>
     <label asp-for="StainColor" class="control-label">What's the Stain Color?'</label>
-    <input type="text" name="StainColor" class="form-control" value="@Model.StainColor" />
-
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" value="@Model.WI" checked name="WI" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Does This House Have Wrought Iron Balusters</label>
-    </div>
-
-    <label asp-for="Notes" class="control-label">Notes</label>
+    <input type="text" name="StainColor" class="form-control" value="@Model.StainColor" />  
+    <br>   
+    <td><input asp-for="@Model.WI" value="true" />Does This House Have Wrought Iron Balusters?</td>
+    <br>
+    <br>
+    <label asp-for="Notes" class="control-label">Notes</label>   
     <input type="text" name="Notes" class="form-control" value="@Model.Notes" />
-
-
-    
-
-
-
+    <br>
+    <br> 
     <input type="submit" value="Update House Details" class="btn btn-primary" />
 }

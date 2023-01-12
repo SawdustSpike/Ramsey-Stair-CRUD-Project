@@ -182,6 +182,7 @@ namespace Ramsey_Stair_CRUD_Project.Repos
                 "MeasureDone = @measuredone, " +
                 "MeasureDate = @measuredate," +
                 "MeasureState = @measurestate," +
+                "OnHold = @onhold,"+
                 "InstallDone = @installdone," +
                 "InstallDate = @installdate," +
                 "InvoiceNum = @invoicenum," +
@@ -198,6 +199,7 @@ namespace Ramsey_Stair_CRUD_Project.Repos
                     measuredone = o.MeasureDone,
                     measuredate = o.MeasureDate,
                     measurestate = o.MeasureState,
+                    onhold = o.OnHold,
                     installdone = o.InstallDone,
                     installdate = o.InstallDate,
                     invoicenum = o.InvoiceNum,
