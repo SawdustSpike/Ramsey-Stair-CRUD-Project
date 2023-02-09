@@ -118,11 +118,11 @@
         {
             <tr>
                 <td>@rail.RailLineNum</td>
-                <td>@rail.RailTypeID</td>
-                <td>@rail.RailStyleID</td>
+                <td>@Model.RailTypes[rail.RailTypeID]</td>
+                <td>@Model.RailStyles[rail.RailStyleID]</td>
                 <td>@rail.RailLength</td>
                 <td>@rail.ShoeLength</td>
-                <td>@rail.CapTypeID</td>
+                <td>@Model.CapTypes[rail.CapTypeID]</td>
                 <td>@rail.CapLength</td>
                 
             </tr>

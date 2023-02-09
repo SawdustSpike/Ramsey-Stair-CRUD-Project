@@ -45,8 +45,8 @@ namespace Ramsey_Stair_CRUD_Project.Repos
 
         public string PickBuilder(int id)
         {
-            var builder = GetBuilders(); 
-            foreach (Builder b in builder)
+            var builders = GetBuilders(); 
+            foreach (Builder b in builders)
             {
                 if (id == b.BuilderID)
                 {
@@ -57,8 +57,8 @@ namespace Ramsey_Stair_CRUD_Project.Repos
         }
         public string PickBaluster(int id)
         {
-            var baluster = GetBalusterStyle();
-            foreach (BalusterStyle b in baluster)
+            var balusters = GetBalusterStyle();
+            foreach (BalusterStyle b in balusters)
             {
                 if (id == b.BalStyleID)
                 {
@@ -67,43 +67,37 @@ namespace Ramsey_Stair_CRUD_Project.Repos
             }
             return "Baluster Style Not Found";
         }
-        public string PickRailStyle(int id)
+        public Dictionary<int, string> PickRailStyle()
         {
-            var RailStyle = GetRailStyle();
-            foreach (RailStyle r in RailStyle)
+            var RailStyles = GetRailStyle();
+            var res = new Dictionary<int, string>();
+            foreach (RailStyle r in RailStyles)
             {
-                if (id == r.RailStyleID)
-                {
-                    return r.RailStyles;
-                }
+                res.Add(r.RailStyleID, r.RailStyles);
             }
-            return "Rail Style Not Found";
+            return res;
         }
 
-        public string PickRailType(int id)
+        public Dictionary<int,string> PickRailType()
         {
-            var RailType = GetRailType();
-            foreach (RailType r in RailType)
+            var RailTypes = GetRailType();
+            var res = new Dictionary<int,string>();
+            foreach (RailType r in RailTypes)
             {
-                if (id == r.RailTypeID)
-                {
-                    return r.RailTypes;
-                }
+                res.Add(r.RailTypeID, r.RailTypes);
             }
-            return "Rail Type Not Found";
+            return res;
         }
 
-        public string PickCapType(int id)
+        public Dictionary<int, string> PickCapType()
         {
-            var CapType = GetCapType();
-            foreach (CapType c in CapType)
+            var CapTypes = GetCapType();
+            var res = new Dictionary<int, string>();
+            foreach (CapType c in CapTypes)
             {
-                if (id == c.CaptypeID)
-                {
-                    return c.CapTypes;
-                }
+                res.Add(c.CaptypeID, c.CapTypes);
             }
-            return "Cap Type Not Found";
+            return res;
         }
 
         public IEnumerable<CapType> GetCapType()

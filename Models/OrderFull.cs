@@ -21,8 +21,8 @@ namespace Ramsey_Stair_CRUD_Project.Models
         [StringLength(15)]
         public string InvoiceDate { get; set; }
         public int? PitchBal { get; set; } = 0;
-        public int FlatBal { get; set; } = 0;
-        public int? BalStyleID { get; set; } 
+        public int? FlatBal { get; set; } = 0;
+        public int? BalStyleID { get; set; } = 1;
         public int? HouseID { get; set; }
         [StringLength(50)]
         public string? Address { get; set; }
@@ -32,7 +32,7 @@ namespace Ramsey_Stair_CRUD_Project.Models
         public string? Model { get; set; }
         [StringLength(20)]
         public string? SubDiv { get; set; }
-        public int? BuilderID { get; set; }
+        public int? BuilderID { get; set; } = 1;
         [StringLength(20)]
         public string? HardwareColor { get; set; }
         [StringLength(20)]
@@ -53,5 +53,9 @@ namespace Ramsey_Stair_CRUD_Project.Models
         public IEnumerable<WallAccess>? WallAccesses { get; set; }
         public IEnumerable<Niche>? Niches { get; set; }
         public IEnumerable<Mantle>? Mantles { get; set; }    
+        public Dictionary<int, string>? RailTypes { get; set; }
+        public Dictionary<int, string>? CapTypes { get; set; }
+        public Dictionary<int, string>? RailStyles { get; set; }
+
     }
 }

@@ -60,6 +60,9 @@ namespace Ramsey_Stair_CRUD_Project.Controllers
             var order = repo.FullOrder(id);                      
             ViewBag.BuilderName = repo.PickBuilder((int)order.BuilderID);
             ViewBag.BalusterType = repo.PickBaluster((int)order.BalStyleID);
+            order.CapTypes = repo.PickCapType();
+            order.RailTypes = repo.PickRailType();
+            order.RailStyles = repo.PickRailStyle();
             order.Railines = repo.GetAllRail(id);
             order.Mantles = repo.GetMantles(id);
             order.TubFronts = repo.GetTubFronts(id);
@@ -68,8 +71,6 @@ namespace Ramsey_Stair_CRUD_Project.Controllers
 
             return View(order);
         }
-        //public IActionResult Index()
-        //{
             public ActionResult Index(string sortOrder)
             {
                 
@@ -81,13 +82,13 @@ namespace Ramsey_Stair_CRUD_Project.Controllers
             var order = repo.GetAllOrderFull();
                 switch (sortOrder)
                 {
-                    case "name_desc":
+                case "name_desc":
                         order = order.OrderByDescending(s => s.LotNum);
                         break;
-                    case "MDate":
+                case "MDate":
                         order = order.OrderBy(s => s.MeasureDate);
                         break;
-                    case "Mdate_desc":
+                case "Mdate_desc":
                         order = order.OrderByDescending(s => s.MeasureDate);
                         break;
                 case "INum":
@@ -115,10 +116,7 @@ namespace Ramsey_Stair_CRUD_Project.Controllers
                 }
                 return View(order.ToList());
             }
-            //var order = repo.GetAllOrderFull();
-
-            //return View(order);
-        //}     
+           
         public IActionResult MillWork(int id)
         {
             ViewBag.Balusters = repo.GetBalusterStyle();
@@ -131,27 +129,5 @@ namespace Ramsey_Stair_CRUD_Project.Controllers
             return RedirectToAction("EditMenu", new { id = order.HouseID });
         }
 
-
-
-
-
-
-        //public IActionResult InsertOrderToDatabase(OrderFull orderToInsert)
-        //{
-        //    repo.InsertOrderFull(orderToInsert);
-        //    return RedirectToAction("Index");
-        //}
-        //public IActionResult InsertRail()
-        //{
-        //    ViewBag.RailStyles = repo.GetRailStyle();
-        //    ViewBag.RailTypes = repo.GetRailType();
-        //    ViewBag.CapTypes = repo.GetCapType();
-        //    ViewBag.LotNumbers = repo.GetLotNumbers();
-        //    ViewBag.Builders = repo.GetBuilders();
-        //    ViewBag.BalusterTypes = repo.GetBalusterTypes();
-
-
-        //    return View(new Rail());
-        //}
     }
 }

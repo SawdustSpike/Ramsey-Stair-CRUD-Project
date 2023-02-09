@@ -23,9 +23,9 @@ namespace Ramsey_Stair_CRUD_Project.Repos.Interfaces
         public void InsertHouse(OrderFull o);
         public string PickBuilder(int id);
         public string PickBaluster(int id);
-        public string PickRailType(int id);
-        public string PickRailStyle(int id);
-        public string PickCapType(int id);
+        public Dictionary<int, string> PickRailType();
+        public Dictionary<int, string> PickRailStyle();
+        public Dictionary<int, string> PickCapType();
         public int? GetHouseID(string lotNum);
         public void UpdateHouseDetails(OrderFull o);
       
